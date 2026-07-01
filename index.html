@@ -4,80 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>GrowTogether Solutions — July 2026 Content Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0f1e;--surface:#111827;--card:#1a2235;--border:#1e2d45;
-  --text:#e8edf8;--text2:#8fa3c4;--text3:#4a5f7a;
-  --accent:#3b82f6;--accent2:#2563eb;--green:#10b981;--green-bg:#052e16;
-  --amber:#f59e0b;--purple:#8b5cf6;--radius:12px;--radius-sm:8px;
+  --sky-50:#f0f9ff;--sky-100:#e0f2fe;--sky-200:#bae6fd;--sky-300:#7dd3fc;
+  --sky-500:#0ea5e9;--sky-600:#0284c7;--sky-700:#0369a1;--sky-900:#0c4a6e;
+  --bg:#f4faff;--surface:#ffffff;--card:#eef8ff;--border:#d3ecfb;
+  --text:#0c2f47;--text2:#4b7290;--text3:#9cc3dc;
+  --accent:var(--sky-500);--accent2:var(--sky-600);
+  --green:#0d9488;--green-bg:#ecfdf5;
+  --amber:#d97706;--purple:#7c6ff0;
+  --radius:16px;--radius-sm:10px;
+  --shadow:0 4px 20px rgba(14,165,233,.08);
 }
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:20px 16px}
+body{font-family:'Inter',system-ui,sans-serif;background:linear-gradient(180deg,var(--sky-50) 0%,#ffffff 340px);color:var(--text);min-height:100vh;padding:20px 16px}
+h1,h2,.logo,.result-date,.block-header span{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
 
 /* Header */
-.header{text-align:center;margin-bottom:28px;padding:24px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
-.logo{font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.header h1{font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px}
-.header p{font-size:13px;color:var(--text2)}
-.badge-row{display:flex;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap}
-.badge{padding:4px 12px;border-radius:999px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.badge.blue{background:rgba(59,130,246,.15);color:var(--accent);border:1px solid rgba(59,130,246,.3)}
-.badge.green{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.header{text-align:center;margin-bottom:24px;padding:28px 20px;background:linear-gradient(135deg,var(--sky-500),var(--sky-600));border-radius:20px;box-shadow:0 10px 30px rgba(2,132,199,.25);position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:rgba(255,255,255,.12);border-radius:50%}
+.logo{font-size:12px;font-weight:700;color:#e0f2fe;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;position:relative}
+.header h1{font-size:25px;font-weight:800;color:#ffffff;margin-bottom:6px;position:relative}
+.header p{font-size:13px;color:#e0f2fe;position:relative}
+.badge-row{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap;position:relative}
+.badge{padding:5px 13px;border-radius:999px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
 
 /* Search */
-.search-card{max-width:600px;margin:0 auto 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.search-label{font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.search-card{max-width:600px;margin:0 auto 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.search-label{font-size:12px;font-weight:700;color:var(--sky-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .search-row{display:flex;gap:10px;flex-wrap:wrap}
-.date-select{flex:1;min-width:180px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;color:var(--text);font-size:14px;font-family:inherit;outline:none;cursor:pointer;transition:border-color .2s}
+.date-select{flex:1;min-width:180px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;color:var(--text);font-size:14px;font-family:inherit;outline:none;cursor:pointer;transition:border-color .2s}
 .date-select:focus{border-color:var(--accent)}
-.search-btn{padding:12px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap}
-.search-btn:hover{background:var(--accent2)}
+.search-btn{padding:12px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap;box-shadow:0 4px 12px rgba(14,165,233,.3)}
+.search-btn:hover{background:var(--accent2);transform:translateY(-1px)}
 
 /* Result */
 .result{max-width:600px;margin:0 auto;display:none;flex-direction:column;gap:12px}
 .result.visible{display:flex}
 
-.result-header{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.result-date{font-size:18px;font-weight:700;color:var(--text)}
-.result-service{padding:5px 14px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(139,92,246,.15);color:var(--purple);border:1px solid rgba(139,92,246,.3)}
+.result-header{background:linear-gradient(135deg,var(--sky-500),var(--sky-600));border-radius:var(--radius);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;box-shadow:var(--shadow)}
+.result-date{font-size:18px;font-weight:800;color:#fff}
+.result-service{padding:5px 14px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4)}
 
-.content-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.block-header{padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
-.block-header.blue{background:rgba(59,130,246,.08);color:var(--accent)}
-.block-header.green{background:rgba(16,185,129,.08);color:var(--green)}
-.block-header.amber{background:rgba(245,158,11,.08);color:var(--amber)}
-.block-header.purple{background:rgba(139,92,246,.08);color:var(--purple)}
-.block-body{padding:16px;font-size:13.5px;color:var(--text);line-height:1.7;white-space:pre-wrap}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.block-header{padding:11px 16px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.block-header.blue{background:var(--sky-50);color:var(--sky-700)}
+.block-header.green{background:var(--green-bg);color:var(--green)}
+.block-header.amber{background:#fffbeb;color:var(--amber)}
+.block-header.purple{background:#f3f1ff;color:var(--purple)}
+.block-body{padding:16px;font-size:13.5px;color:var(--text);line-height:1.75;white-space:pre-wrap}
 
-.copy-btn{background:rgba(255,255,255,.08);border:none;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;color:inherit;transition:all .15s;font-family:inherit}
-.copy-btn:hover{background:rgba(255,255,255,.16)}
+.copy-btn{background:var(--sky-100);border:none;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;color:var(--sky-700);transition:all .15s;font-family:inherit;font-weight:600}
+.copy-btn:hover{background:var(--sky-200)}
 .copy-btn.copied{background:var(--green);color:#fff}
 
 /* Image */
 .img-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:16px}
-.scene-img{width:100%;border-radius:var(--radius-sm);object-fit:cover;min-height:200px;background:var(--card);display:block}
+.scene-img{width:100%;border-radius:var(--radius-sm);object-fit:cover;min-height:200px;background:var(--card);display:block;border:1px solid var(--border)}
 
 /* Download */
-.download-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap}
-.dl-btn{flex:1;padding:12px 16px;border-radius:var(--radius-sm);border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;text-align:center;min-width:140px}
+.download-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.dl-btn{flex:1;padding:12px 16px;border-radius:var(--radius-sm);border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;text-align:center;min-width:140px}
 .dl-btn.primary{background:var(--accent);color:#fff}
 .dl-btn.primary:hover{background:var(--accent2)}
-.dl-btn.secondary{background:var(--card);color:var(--text2);border:1px solid var(--border)}
-.dl-btn.secondary:hover{color:var(--text);border-color:var(--accent)}
+.dl-btn.secondary{background:var(--sky-50);color:var(--sky-700);border:1px solid var(--border)}
+.dl-btn.secondary:hover{color:var(--sky-900);border-color:var(--accent)}
 
 /* Calendar mini grid */
-.cal-section{max-width:600px;margin:0 auto 24px}
-.cal-title{font-size:13px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;text-align:center}
+.cal-section{max-width:600px;margin:0 auto 20px}
+.cal-title{font-size:13px;font-weight:700;color:var(--sky-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;text-align:center}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal-day-header{text-align:center;font-size:10px;font-weight:600;color:var(--text3);padding:4px;text-transform:uppercase}
-.cal-day{text-align:center;padding:8px 4px;border-radius:var(--radius-sm);font-size:12px;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text2);transition:all .2s}
-.cal-day:hover{border-color:var(--accent);color:var(--text)}
-.cal-day.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.cal-day-header{text-align:center;font-size:10px;font-weight:700;color:var(--text3);padding:4px;text-transform:uppercase}
+.cal-day{text-align:center;padding:8px 4px;border-radius:var(--radius-sm);font-size:12px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text2);transition:all .2s;font-weight:600}
+.cal-day:hover{border-color:var(--accent);color:var(--sky-700);background:var(--sky-50)}
+.cal-day.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:800;box-shadow:0 4px 10px rgba(14,165,233,.35)}
 .cal-day.empty{background:transparent;border-color:transparent;cursor:default}
 
 /* Footer */
-.footer{text-align:center;margin-top:32px;font-size:12px;color:var(--text3)}
-.footer a{color:var(--accent);text-decoration:none}
+.footer{text-align:center;margin-top:32px;font-size:12px;color:var(--text2)}
+.footer a{color:var(--sky-600);text-decoration:none;font-weight:600}
 
 /* Mobile */
 @media(max-width:640px){
@@ -98,9 +106,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <h1>📅 July 2026 Content Calendar</h1>
   <p>Business Growth & Training Services — Rajkot, Gujarat</p>
   <div class="badge-row">
-    <span class="badge blue">31 Days Content</span>
-    <span class="badge green">✅ No API Key Needed</span>
-    <span class="badge blue">8 Services Covered</span>
+    <span class="badge">31 Days of Content</span>
+    <span class="badge">✅ No API Key Needed</span>
+    <span class="badge">8 Services Covered</span>
   </div>
 </div>
 
@@ -115,7 +123,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <div class="cal-day-header">Thu</div>
     <div class="cal-day-header">Fri</div>
     <div class="cal-day-header">Sat</div>
-    <!-- July 2026 starts on Wednesday -->
     <div class="cal-day empty"></div>
     <div class="cal-day empty"></div>
     <div class="cal-day empty"></div>
@@ -156,10 +163,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
 <!-- Search -->
 <div class="search-card">
-  <div class="search-label">Date select karo</div>
+  <div class="search-label">Select a date</div>
   <div class="search-row">
     <select class="date-select" id="date-select">
-      <option value="">-- Date chuniye --</option>
+      <option value="">-- Choose a date --</option>
       <option value="1">01 July 2026 — Wednesday</option>
       <option value="2">02 July 2026 — Thursday</option>
       <option value="3">03 July 2026 — Friday</option>
@@ -243,284 +250,274 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   </div>
 </div>
 
-<div class="footer" style="margin-top:32px">
+<div class="footer">
   <p>GrowTogether Solutions · Rajkot, Gujarat · <a href="https://growtogethersolution.co.in" target="_blank">growtogethersolution.co.in</a></p>
   <p style="margin-top:4px">📞 +91 99797 01232 · 💬 <a href="https://wa.me/919979701232" target="_blank">WhatsApp</a></p>
 </div>
 
 <script>
-// ── FULL JULY 2026 CONTENT DATA ──
-// 31 days of pre-generated content for GrowTogether Solutions
-// Services: Social Media, Content Writing, Staff Training, CRM, Business Strategy, PPT, Website, Email
+// ── FULL JULY 2026 CONTENT DATA — English, unique per day, sky-blue/white themed images ──
+const THEME_STYLE = "flat vector illustration, minimalist corporate style, color palette strictly limited to sky blue (#0ea5e9, #38bdf8), pale sky blue (#e0f2fe) and white, soft clean shadows, generous white space, no other dominant colors, premium modern brand aesthetic";
+
 const content = {
   1: {
     service: "📱 Social Media Marketing",
-    caption: `🚀 Is mahine apne business ko social media par strong banao!\n\nAapke competitors already Instagram aur LinkedIn par active hain — kya aap peeche reh rahe hain?\n\nGrowTogether Solutions ke saath:\n✅ 10 professional images/month\n✅ 2 engaging videos/month\n✅ Platform strategy jo actually kaam kare\n✅ Real growth, real results\n\nHumne 20+ businesses ko help kiya hai apni online presence banane mein. Aapka business next ho sakta hai! 💼\n\nFree consultation ke liye aaj hi message karo. 👇`,
-    hashtags: `#SocialMediaMarketing #GrowTogetherSolutions #BusinessGrowth #InstagramMarketing #LinkedInMarketing #DigitalMarketing #ContentStrategy #IndianBusiness #RajkotBusiness #SmallBusinessIndia #MarketingTips #OnlinePresence #BusinessSuccess #GujaratBusiness #FreelanceMarketing`,
-    imagePrompt: `Professional social media marketing concept, colorful analytics dashboard, business growth charts, mobile phone showing Instagram feed, modern office background, vibrant blue and orange colors, flat design style`,
-    script: `🎬 REEL IDEA — "Aapka Business Social Media Par Kyun Hona Chahiye"\n\nHook (0-3 sec): "Kya aap jaante hain? 70% customers kisi bhi brand ko follow karne se pehle uska social media check karte hain!"\n\nBody (3-20 sec):\n- Scene 1: Customer phone pe brand search karta hai\n- Scene 2: Strong profile vs empty profile comparison\n- Scene 3: GrowTogether ke client results dikhaao\n\nCTA (20-25 sec): "Apna FREE consultation book karo — link bio mein hai!"\n\nBackground Music: Upbeat, motivational\nVoiceover: Hindi + English mix`
+    caption: `New month, new momentum. 🌤️\n\nJuly just started — so here's a real question: how much business did your Instagram or LinkedIn actually bring in last month?\n\nIf the honest answer is "not much," the problem usually isn't posting — it's planning.\n\nWith GrowTogether, you get a real monthly system:\n→ 10 scroll-stopping visuals\n→ 2 reels people actually watch\n→ Captions + hashtag strategy for every single post\n→ A clean content calendar, planned a full month ahead\n\nWe don't just post content — we build a presence people remember.\n\nMake July your best growth month yet. Message us for a free consultation. 👇`,
+    hashtags: `#SocialMediaMarketing #GrowTogetherSolutions #ContentThatConverts #InstagramGrowth #LinkedInForBusiness #DigitalMarketing #RajkotBusiness #GujaratEntrepreneurs #SmallBusinessMarketing #BrandBuilding #YourGrowthOurMission`,
+    imagePrompt: `A hand holding a smartphone displaying a clean, organized Instagram content grid, next to a laptop and a printed monthly content calendar on a minimal white desk. ${THEME_STYLE}`,
+    script: `🎬 REEL — "A New Content System, Day One"\n\nHook (0-3s): "It's the 1st of July — new content system, live!"\n\nBody (3-20s):\n- Timelapse of an empty calendar filling up with 31 days of content\n- Visuals, reels, and captions slotting into place one by one\n- Final frame: a full, organized month on screen\n\nCTA (20-25s): "We can build your July calendar too — DM us!"\n\nMusic: Light, upbeat\nTone: Fresh start, clean energy`
   },
   2: {
     service: "🎓 Staff Training",
-    caption: `💡 Aapki team ka performance hi aapke business ka performance hai!\n\nGrowTogether Solutions ka Staff Training program:\n\n🔥 Motivation sessions jo lasting change laate hain\n🎓 Digital tools training (CRM, Excel, Google Workspace)\n💼 Leadership & communication skills\n👥 5 se 1000+ employees ke liye customizable\n\nHamne 500+ professionals ko train kiya hai across Gujarat aur India. Aapki team ready hai next level par jaane ke liye?\n\nAaj hi ek free session book karo! 📅`,
-    hashtags: `#StaffTraining #TeamMotivation #CorporateTraining #EmployeeTraining #LeadershipDevelopment #TeamBuilding #GrowTogetherSolutions #BusinessTraining #HRTraining #MotivationSpeaker #RajkotTraining #GujaratCorporate #TeamPerformance #DigitalSkills #WorkplaceTraining`,
-    imagePrompt: `Corporate staff training session, enthusiastic team members in modern conference room, trainer presenting on whiteboard, diverse professional team, warm lighting, motivational atmosphere, business casual attire`,
-    script: `🎬 REEL IDEA — "1 Training Session Se Aapki Team Kaise Badal Sakti Hai"\n\nHook: "Kya aapki team apni full potential par kaam kar rahi hai?"\n\nBody:\n- Before: Demotivated, disorganized team\n- During: GrowTogether training session energy\n- After: Confident, productive team results\n- Testimonial clip: Real client feedback\n\nCTA: "Book a FREE demo session today!"\n\nStyle: Transformation story format, emotional connection`
+    caption: `A team that isn't motivated is the most expensive hidden cost in any business. 💡\n\nLow energy, missed deadlines, a "good enough" attitude — these quietly eat into revenue every single day.\n\nOur Staff Training program closes that exact gap:\n🔥 Practical motivation sessions — real shift, not just theory\n🎓 Digital tools training — CRM, Excel, Google Workspace\n💼 Communication and ownership building\n👥 Works for teams from 5 to 1000+ people\n\nOver 500 professionals have already been trained across Gujarat.\n\nSee a session that permanently shifts your team's energy. Book a free trial session. 📅`,
+    hashtags: `#StaffTraining #TeamMotivation #CorporateTraining #GrowTogetherSolutions #EmployeeDevelopment #LeadershipTraining #WorkplaceCulture #TeamPerformance #GujaratCorporate #HRSolutions`,
+    imagePrompt: `A bright corporate training room with a group of professionals seated in a semi-circle, a trainer at a whiteboard sketching a simple growth diagram, large windows with soft light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "One Team, Two Versions"\n\nHook: "Same team. Two energy levels. The only difference is one training session."\n\nBody:\n- Split screen: low-energy team vs. energized team after training\n- Quick clip of a session moment — trainer engaging the group\n- Overlay: "500+ trained, five-star feedback"\n\nCTA: "Book a FREE trial session for your team!"\n\nStyle: Split-screen contrast, punchy cuts`
   },
   3: {
     service: "💼 CRM Development",
-    caption: `⚡ Aapka business manual work se thaka hua hai?\n\nCustom CRM se sab kuch automate karo:\n\n📊 Orders aur payments track karo real-time mein\n👥 Team tasks aur attendance manage karo\n📈 Sales pipeline ek jagah dekhho\n📱 Mobile se bhi access karo kabhi bhi\n\nGrowTogether Solutions ne Enervia aur Pharma In All jaise businesses ke liye complete CRM systems build kiye hain.\n\n🎯 Aapke business ke liye bhi custom CRM ban sakta hai!\n\nFree demo ke liye WhatsApp karo. 👇`,
-    hashtags: `#CRMDevelopment #CustomCRM #BusinessAutomation #DigitalTransformation #CRMSoftware #BusinessManagement #GrowTogetherSolutions #TechForBusiness #SmallBusinessCRM #BusinessEfficiency #SalesAutomation #RajkotTech #IndiaStartup #BusinessSoftware #OrderManagement`,
-    imagePrompt: `Modern CRM software dashboard on laptop screen, colorful charts and graphs, order management interface, professional desk setup, dark mode UI, data visualization, business analytics, clean modern design`,
-    script: `🎬 REEL IDEA — "Custom CRM Se Business Kaise 10x Efficient Banta Hai"\n\nHook: "Agar aap abhi bhi Excel sheets mein orders track kar rahe hain, toh aap time aur money waste kar rahe hain!"\n\nBody:\n- Problem: Manual tracking ka chaos\n- Solution: Live CRM demo dikhaao\n- Result: Time saved, errors reduced\n- Client testimonial: Sachin Thakkar, Enervia\n\nCTA: "FREE CRM demo book karo — aaj hi!"`
+    caption: `Still tracking orders in Excel at 11pm? That's the sign. 📊\n\nManual tracking slows a business down past a certain point — mistakes, missed follow-ups, a confused team.\n\nGrowTogether builds a custom CRM designed around your exact workflow:\n✅ Live order and payment tracking\n✅ Team tasks and attendance in one place\n✅ A sales pipeline you can actually see\n✅ Mobile access, from anywhere\n\nBusinesses like Pharma In All and Enervia already run their entire operations on systems like this — real-time, end to end.\n\nWhat would your business's own CRM look like? See a free demo — WhatsApp us. 👇`,
+    hashtags: `#CustomCRM #CRMDevelopment #BusinessAutomation #GrowTogetherSolutions #TechForBusiness #DigitalTransformation #SalesAutomation #RajkotTech #BusinessSoftware`,
+    imagePrompt: `A sleek CRM dashboard on a laptop screen showing an order pipeline and simple analytics charts, placed on a clean white desk near a window. ${THEME_STYLE}`,
+    script: `🎬 REEL — "11pm Excel to a 30-Second CRM"\n\nHook: "This business owner used to type orders into Excel late at night. Now the same task takes 30 seconds."\n\nBody:\n- Frustrated late-night Excel scene\n- Cut to: a clean CRM dashboard, one-tap order entry\n- A real client (Enervia) using it confidently\n\nCTA: "See your custom CRM demo FREE — message us!"`
   },
   4: {
     service: "📊 PPT Design",
-    caption: `✨ Aapki presentation ki pehli impression hi sab kuch decide karti hai!\n\nGrowTogether Solutions ki PPT Design service:\n\n🎨 Professional, brand-aligned designs\n📊 Clear data visualization\n🌟 Animations jo attention capture karein\n💼 Corporate, investor, aur client presentations\n⚡ 24-48 hours delivery\n\nEk boring presentation aur ek powerful presentation ka fark hota hai — ek deal close karna aur ek deal lose karna!\n\nApni next presentation ke liye aaj hi contact karo. 🚀`,
-    hashtags: `#PPTDesign #PresentationDesign #PowerPointDesign #ProfessionalPresentation #BusinessPresentation #InvestorDeck #GrowTogetherSolutions #PresentationSkills #SlideDesign #CorporatePPT #PitchDeck #VisualCommunication #DesignServices #RajkotDesign #BusinessDesign`,
-    imagePrompt: `Beautiful professional PowerPoint presentation slides on screen, dark gold premium theme, data charts and infographics, modern corporate design, multiple slides layout, elegant typography, business dashboard aesthetic`,
-    script: `🎬 REEL IDEA — "Before vs After: Presentation Transformation"\n\nHook: "Yeh dekho — ek presentation ne kaise ek 5 lakh ka deal close karwaya!"\n\nBody:\n- Before slide: Plain, boring, text-heavy\n- After slide: Beautiful, visual, impactful GrowTogether design\n- Client reaction moment\n- Quick process reveal\n\nCTA: "Apni presentation upgrade karo — DM karo!"\n\nStyle: Side-by-side comparison, before/after reveal`
+    caption: `In a client meeting, the decision is often made within 90 seconds — and it's the slides that make it. 🎯\n\nIf your presentation is cluttered, text-heavy, or built from a generic template, you're weakening your best pitch before you even speak.\n\nGrowTogether PPT Design gives you:\n🎨 Custom design in your brand's colors and tone\n📊 Data that's understood at a glance\n✨ Smooth animation, professional finish\n⚡ Delivery in 24–48 hours\n\nWe've built premium dark-and-gold themed decks for companies like Lumina Corp — every slide intentional.\n\nWhen's your next big meeting? Get your slides ready today. 🚀`,
+    hashtags: `#PPTDesign #PresentationDesign #PitchDeck #GrowTogetherSolutions #InvestorReady #CorporatePresentation #VisualStorytelling #BusinessDesign`,
+    imagePrompt: `An elegant presentation displayed on a widescreen monitor in a modern boardroom, minimal infographic-style slides with simple charts, glass table reflection, natural daylight. ${THEME_STYLE}`,
+    script: `🎬 REEL — "The 90-Second Rule"\n\nHook: "Investors decide in 90 seconds. Will your slide stop them?"\n\nBody:\n- Quick flash of a cluttered, boring slide\n- Transformation reveal: same content, GrowTogether design\n- Reaction shot: an engaged client in the meeting\n\nCTA: "Upgrade your next presentation — DM us!"`
   },
   5: {
     service: "📈 Business Strategy",
-    caption: `🎯 Kya aapka business sahi direction mein ja raha hai?\n\nHar successful business ke peeche ek clear strategy hoti hai!\n\nGrowTogether Solutions Business Strategy Consulting:\n\n🔍 Market & competitor analysis\n📈 Revenue growth planning\n🗺️ Step-by-step actionable roadmap\n💡 Process optimization\n🚀 Sales & marketing setup\n\n6+ saalon ke real-world experience ke saath, humne 30+ businesses ko grow karne mein help ki hai.\n\nAapka FREE consultation aaj book karo! 🤝`,
-    hashtags: `#BusinessStrategy #BusinessConsulting #GrowthStrategy #StartupIndia #BusinessGrowth #EntrepreneurIndia #GrowTogetherSolutions #MarketAnalysis #BusinessPlanning #SMEIndia #BusinessMentor #RevenueGrowth #GujaratBusiness #IndianEntrepreneur #BusinessSuccess`,
-    imagePrompt: `Business strategy planning session, professional consultant with growth charts and roadmap on whiteboard, strategic planning concept, arrows pointing upward, modern office, confident business professional, blue and white color scheme`,
-    script: `🎬 REEL IDEA — "3 Signs Ki Aapke Business Ko Strategy Ki Zaroorat Hai"\n\nHook: "Agar aap in 3 signs mein se ek bhi pehchaante ho, toh sun lo!"\n\nBody:\n- Sign 1: Revenue plateau ho gayi\n- Sign 2: Team direction mein confused hai\n- Sign 3: Competitors aage nikal rahe hain\n- Solution: GrowTogether Strategy Consulting\n\nCTA: "FREE strategy session book karo — link bio mein!"`
+    caption: `Being busy and being in growth mode are two very different things. 🎯\n\nMany business owners work all day, yet six months later the numbers haven't moved. The reason is usually the same — no clear strategy.\n\nWith GrowTogether Business Strategy Consulting, we deliver:\n🔍 An honest market and competitor analysis\n📈 A realistic revenue growth roadmap\n🗺️ A step-by-step action plan — not just slides, real implementation support\n💡 Identifying and fixing weak processes\n\nWith over 6 years of ground-level experience, we've already helped 30+ businesses grow.\n\nWhere is your business stuck right now? Let's find out in a free consultation. 🤝`,
+    hashtags: `#BusinessStrategy #GrowthConsulting #GrowTogetherSolutions #BusinessPlanning #SMEGrowth #EntrepreneurJourney #StrategicGrowth #GujaratBusiness #YourGrowthOurMission`,
+    imagePrompt: `A business strategy session with a consultant and business owner reviewing a growth roadmap sketched on a glass whiteboard, simple upward arrow diagrams, modern minimalist office. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Busy vs. Growing"\n\nHook: "Are you busy, or are you growing? This quick test will tell you."\n\nBody:\n- 3 quick questions overlaid (flat revenue? confused team? no plan for next quarter?)\n- Cut to a strategy session: a roadmap being built on a whiteboard\n- Final frame: a clear 3-step plan visual\n\nCTA: "Book your FREE strategy session!"`
   },
   6: {
     service: "✍️ Content Writing",
-    caption: `📝 Aapki website ka content hi aapka sabse powerful salesperson hai!\n\nGrowTogether Solutions Content Writing:\n\n🌐 SEO-optimized website copy\n📰 Blog articles jo rank karein\n🔤 Hindi + English dono mein available\n💼 Brand voice consistent rakhna\n🎯 Content jo readers ko customers banata hai\n\nGood content = More visibility = More clients!\n\nAaj hi apni content strategy ke baare mein baat karte hain. 💬`,
-    hashtags: `#ContentWriting #SEOContent #ContentMarketing #BlogWriting #WebsiteCopy #HindiContent #GrowTogetherSolutions #DigitalMarketing #ContentCreator #SEOIndia #ContentStrategy #BusinessContent #CopywritingIndia #WebContent #MarketingContent`,
-    imagePrompt: `Content writing concept, writer at modern desk with laptop, floating text and content bubbles, SEO keywords visualization, creative workspace, warm lighting, books and coffee, professional writer aesthetic, blue accent colors`,
-    script: `🎬 REEL IDEA — "Kya Aapki Website Ka Content Aapko Clients La Raha Hai?"\n\nHook: "93% log kisi company se contact karne se pehle unki website padhte hain!"\n\nBody:\n- Weak website copy examples\n- Strong, conversion-focused copy\n- SEO rankings improvement\n- Real client website results\n\nCTA: "FREE content audit ke liye message karo!"`
+    caption: `People land on your website — and leave without doing anything. Why? 🤔\n\nMost of the time it isn't the design — it's the content. Weak copy, no clear message, no reason to stay.\n\nGrowTogether Content Writing gives you:\n🌐 SEO-optimized website copy that actually ranks\n📰 Blog articles written for real readers, not just search engines\n🎯 Content that turns a visitor into a customer\n📝 Consistent, professional tone across every page\n\nThe most underrated part of a website is its copy — and also the most powerful.\n\nGet a free content review for your website. Message us. 💬`,
+    hashtags: `#ContentWriting #SEOContent #WebsiteCopy #GrowTogetherSolutions #ContentThatConverts #DigitalMarketing #CopywritingServices`,
+    imagePrompt: `A content writing workspace with a laptop screen showing a clean website copy layout, an open notebook with headline ideas, minimal desk setup near a window. ${THEME_STYLE}`,
+    script: `🎬 REEL — "The 3-Second Test"\n\nHook: "A visitor only gives your website 3 seconds. What do they see?"\n\nBody:\n- Screen recording: scrolling a weak, cluttered homepage\n- Cut to: a clean, clear, benefit-driven homepage\n- Overlay: visitor engagement metrics improving\n\nCTA: "Get a FREE content review — DM us!"`
   },
   7: {
     service: "🌐 Website Development",
-    caption: `💻 Aapki website 24/7 kaam karne wala salesperson hai!\n\nGrowTogether Solutions Website Development:\n\n🎨 Professional, brand-aligned design\n📱 Mobile-first, fully responsive\n⚡ Fast loading, SEO ready\n🔒 Secure aur reliable\n💼 Portfolio, business, e-commerce — sab types\n🌍 India + worldwide clients served\n\nHumari apni website dekhho: growtogethersolution.co.in — yeh hum khud banate hain!\n\nAapki professional website kitne mein banegi? FREE quote ke liye WhatsApp karo! 👇`,
-    hashtags: `#WebDevelopment #WebsiteDesign #BusinessWebsite #ProfessionalWebsite #GrowTogetherSolutions #WebDesignIndia #ResponsiveDesign #MobileWebsite #SEOWebsite #DigitalPresence #RajkotWebDesign #GujaratWebDevelopment #WebsiteBanwao #OnlineBusiness #WebsiteForBusiness`,
-    imagePrompt: `Professional website development concept, laptop showing beautiful business website, coding interface, responsive design across multiple devices, modern web design mockup, clean layout, professional web developer workspace`,
-    script: `🎬 REEL IDEA — "Bina Website Ke Business 2026 Mein Survive Nahi Karega"\n\nHook: "Aapke paas abhi bhi website nahi hai? Toh aap 87% potential clients miss kar rahe ho!"\n\nBody:\n- Statistics about online business\n- GrowTogether portfolio websites showcase\n- Before: No website, After: Professional website\n- Client success story\n\nCTA: "FREE consultation — website ke baare mein baat karte hain!"`
+    caption: `Your business is open 24 hours a day — if your website is professional. 💻\n\nWhen someone searches for you on Google and finds a weak or outdated site, trust is lost before a single word is exchanged.\n\nGrowTogether Website Development gives you:\n🎨 Clean, brand-matching design\n📱 Fully mobile-responsive\n⚡ Fast loading, SEO-ready from day one\n💼 From portfolio sites to full business platforms\n🌍 Built for both Indian and international clients\n\nOur own website (growtogethersolution.co.in) follows this exact philosophy — take a look.\n\nYour professional website can be ready in 7–14 days. Get a free quote. 👇`,
+    hashtags: `#WebDevelopment #BusinessWebsite #GrowTogetherSolutions #ResponsiveWebDesign #WebsiteForBusiness #SEOReady #RajkotWebDesign #DigitalPresence`,
+    imagePrompt: `A modern business homepage design shown side by side on a laptop and a mobile phone, on a clean minimal white desk with soft studio lighting. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Same Search, Two Outcomes"\n\nHook: "Same search. Two businesses. One wins the client — the other loses trust."\n\nBody:\n- Clicking into an outdated, slow website (frustration)\n- Clicking into a clean GrowTogether-built site (trust)\n- Visitor confidently filling out a contact form\n\nCTA: "Get a FREE website consultation — WhatsApp us!"`
   },
   8: {
-    service: "📧 Email Marketing",
-    caption: `📬 Email marketing abhi bhi #1 ROI wala digital channel hai!\n\n1 rupee email marketing mein lagao → 42 rupee return pao!\n\nGrowTogether Solutions Email Services:\n\n📧 Professional newsletter design\n🎯 Targeted cold outreach campaigns\n📊 Open rate & click tracking\n✍️ Compelling email copywriting\n📥 Inbox management & replies\n\nAapke existing customers tak effectively pohoncho — email se!\n\nFREE email strategy consultation ke liye aaj hi contact karo. 🚀`,
-    hashtags: `#EmailMarketing #EmailCampaign #DigitalMarketing #NewsletterMarketing #GrowTogetherSolutions #EmailStrategy #B2BMarketing #LeadGeneration #MarketingROI #EmailCopywriting #BusinessGrowth #MarketingTips #OnlineMarketing #EmailList #ColdOutreach`,
-    imagePrompt: `Email marketing campaign concept, professional inbox dashboard, email open rate analytics, newsletter design on screen, engagement metrics, modern digital marketing workspace, colorful email templates, mobile email preview`,
-    script: `🎬 REEL IDEA — "Email Marketing Kyun Abhi Bhi King Hai"\n\nHook: "Social media algorithms aate-jaate rehte hain. Email list hamesha aapki rehti hai!"\n\nBody:\n- Email vs social media comparison\n- ROI statistics\n- Professional email campaign examples\n- Easy setup process\n\nCTA: "Apni email strategy FREE mein banwao — DM karo!"`
+    service: "📧 Email Marketing & Data Management",
+    caption: `Every channel changes with the algorithm — your email list is the one thing that stays yours. 📬\n\nAnd if your data isn't organized, even the best email won't perform.\n\nGrowTogether Email & Data Management Service:\n📧 Professional newsletters people actually read\n🎯 Targeted outreach — not random blasts\n🗂️ Business data cleaned, organized, and easy to access\n📊 Open-rate and engagement tracking\n\nA clean list plus the right message equals predictable results, every month.\n\nSet up your email and data strategy — contact us for a free consultation. 🚀`,
+    hashtags: `#EmailMarketing #DataManagement #GrowTogetherSolutions #NewsletterStrategy #BusinessOrganization #EmailROI #LeadNurturing #DigitalMarketing`,
+    imagePrompt: `An email marketing dashboard on a tablet next to a neatly organized set of labeled folders, on a clean minimal office desk with morning light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "One List, Results Every Month"\n\nHook: "Social algorithms keep changing. This one thing doesn't."\n\nBody:\n- Quick visual: scattered messy data vs. a clean organized sheet\n- Email opening on a phone, clean design\n- A simple engagement graph rising\n\nCTA: "Build your email strategy FREE — message us!"`
   },
   9: {
     service: "📱 Social Media Marketing",
-    caption: `📊 Social media par posting karna kaafi nahi — strategy chahiye!\n\nKya aap jaante hain:\n❌ Random posting = No results\n✅ Strategic content = Real growth\n\nGrowTogether Solutions ka Social Media Package:\n→ 10 brand-aligned images per month\n→ 2 professional videos\n→ Caption + hashtag strategy\n→ Best time to post analysis\n→ Monthly performance report\n\nAapke competitors smart work kar rahe hain. Kya aap?\n\n🔗 growtogethersolution.co.in`,
-    hashtags: `#SocialMediaStrategy #ContentCalendar #InstagramGrowth #LinkedInGrowth #SocialMediaTips #GrowTogetherSolutions #DigitalMarketing #ContentMarketing #BrandBuilding #SocialMediaManager #OnlineMarketing #BusinessGrowth #MarketingStrategy #IndianBusiness #SMM`,
-    imagePrompt: `Social media content calendar planning, organized content grid on laptop, analytics charts showing growth, social media icons, content strategy planning board, professional marketing workspace, calendar and scheduling tools`,
-    script: `🎬 REEL IDEA — "Social Media Pe Results Kyun Nahi Aa Rahe? 3 Reasons"\n\nHook: "Sab log social media par hain. Par sab success nahi ho rahe. Kyun?"\n\nBody:\n- Reason 1: No consistent posting schedule\n- Reason 2: Wrong content type for platform\n- Reason 3: No engagement strategy\n- Solution: GrowTogether Social Media Management\n\nCTA: "FREE social media audit — comment 'AUDIT'!"`
+    caption: `Random posting and strategic posting produce very different results. 📊\n\nPosting every day isn't enough. The right content, at the right time, to the right audience — that combination is what actually drives growth.\n\nGrowTogether Social Media Package:\n→ 10 brand-consistent images per month\n→ 2 high-quality videos\n→ A full content calendar, planned in advance\n→ Best-time-to-post analysis\n→ A monthly performance report with real numbers\n\nYour competitors are already using a smart strategy. The question is — are you falling behind?\n\n🔗 growtogethersolution.co.in — visit us for a free consultation.`,
+    hashtags: `#SocialMediaStrategy #ContentCalendar #GrowTogetherSolutions #InstagramGrowth #StrategicMarketing #BrandConsistency #SocialMediaManager`,
+    imagePrompt: `A color-coded weekly content calendar spread across a desk beside a laptop showing an upward analytics graph, minimal organized workspace with soft daylight. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Random Post vs. Planned Post"\n\nHook: "Both posted. Only one grew. Why?"\n\nBody:\n- Random posting: inconsistent grid, low engagement\n- Planned posting: cohesive grid, rising growth graph\n- Quick calendar reveal\n\nCTA: "Get a FREE social media audit — comment 'AUDIT'!"`
   },
   10: {
     service: "🎓 Staff Training",
-    caption: `🏆 Motivated team = Successful business. Simple formula!\n\nGrowTogether Solutions Motivation Sessions:\n\n🔥 High-energy, practical sessions\n🎯 Real stories, real techniques\n💪 Lasting mindset change, not just temporary boost\n👥 For teams of 5 to 1000+\n📍 In-person or virtual available\n🗓️ Mon-Sat, flexible timing\n\n500+ professionals ne already benefit kiya hai humare training se!\n\nAapki team ki baari hai. 📅 Book karo aaj!`,
-    hashtags: `#TeamMotivation #MotivationSession #CorporateMotivation #StaffMotivation #GrowTogetherSolutions #TeamBuilding #LeadershipTraining #EmployeeMotivation #WorkplaceMotivation #TeamSuccess #HRDevelopment #CorporateTraining #MotivationalSpeaker #GujaratTraining #BusinessMotivation`,
-    imagePrompt: `High energy corporate motivation session, enthusiastic speaker on stage, engaged audience, bright lighting, team celebration moment, motivational quotes on screen, positive energy atmosphere, professional conference setting`,
-    script: `🎬 REEL IDEA — "Ek Motivation Session Ne Kaise Ek Team Ko Transform Kiya"\n\nHook: "Yeh ek real story hai jo aapko inspire kar degi!"\n\nBody:\n- Client's team problem (low morale, high attrition)\n- GrowTogether motivation session highlights\n- 3 months later results: performance metrics improved\n- Team member testimonials\n\nCTA: "Book a session for your team!"`
+    caption: `After a good training session, a team leaves the room with a different energy — and that's never a coincidence. 🏆\n\nGrowTogether Motivation & Training Sessions:\n🔥 High-energy, practical — never just theory\n🎯 Real examples, techniques that actually work\n💪 A lasting mindset shift, not a temporary boost\n👥 For teams of 5 to 1000+\n📍 In-person or virtual, whatever fits your team\n\nOver 500 professionals have already benefited.\n\nIt's your team's turn. Book a session and see the difference for yourself. 📅`,
+    hashtags: `#TeamMotivation #StaffTraining #GrowTogetherSolutions #CorporateWellness #TeamBuilding #WorkplaceEnergy #MotivationSession #LeadershipTraining`,
+    imagePrompt: `An energetic corporate motivation session with a diverse team standing together in a celebratory moment after a workshop, bright airy conference hall with natural window light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "One Session, New Energy"\n\nHook: "This is the team before the session. This is the same team after."\n\nBody:\n- Before: tired, low-energy team clip\n- Training session snippet: engagement, focus, energy\n- After: an energized team, a high-five moment\n\nCTA: "Book a session for your team — today!"`
   },
   11: {
     service: "💼 CRM Development",
-    caption: `🗄️ Kitna data aap abhi Excel mein manage kar rahe ho?\n\nAgar jawab hai "bahut zyada" — toh Custom CRM aapki zaroorat hai!\n\nGrowTogether CRM Features:\n✅ Order & payment management\n✅ Employee attendance tracking\n✅ Task assignment & monitoring\n✅ Finance & billing reports\n✅ Mobile access, anytime anywhere\n✅ 100% customized for YOUR business\n\nPharma In All aur Enervia pehle se use kar rahe hain.\n\nAapka business kab shift hoga? 🚀`,
-    hashtags: `#CustomCRM #BusinessCRM #OrderManagement #BusinessAutomation #GrowTogetherSolutions #CRMSoftware #BusinessDigitization #AttendanceManagement #TaskManagement #BusinessSoftware #TechSolution #IndiaDigital #SmallBusinessTech #CRMDevelopment #BusinessEfficiency`,
-    imagePrompt: `Custom CRM software on multiple devices, order management dashboard, employee attendance tracking interface, business reports and analytics, mobile CRM app, clean modern UI design, professional business software aesthetic`,
-    script: `🎬 REEL IDEA — "Hamara Custom CRM Kaise Kaam Karta Hai — Live Demo"\n\nHook: "30 seconds mein dekho kaise yeh CRM ek business ka poora operation manage karta hai!"\n\nBody:\n- Quick CRM walkthrough\n- Order tracking feature\n- Team management\n- Reports dashboard\n- Client (Pharma In All) using it\n\nCTA: "FREE demo ke liye WhatsApp karo!"`
+    caption: `How much of your business data is still scattered across Excel sheets, WhatsApp messages, and notebooks? 🗂️\n\nIf the answer is "a lot," a custom CRM will become your biggest time-saver.\n\nGrowTogether CRM Features:\n✅ Orders and payments — in one place, real-time\n✅ Employee attendance tracking\n✅ Task assignment and monitoring\n✅ Finance and billing reports\n✅ Mobile access, anytime, anywhere\n✅ 100% customized to your business\n\nPharma In All and Enervia already run systems like this every single day.\n\nWhen will your business make the shift from manual to automated? WhatsApp us. 🚀`,
+    hashtags: `#CustomCRM #BusinessAutomation #GrowTogetherSolutions #OrderManagement #CRMSoftware #TaskManagement #BusinessDigitization #SmallBusinessTech`,
+    imagePrompt: `A custom CRM interface displayed across a laptop, tablet, and phone showing order tracking and an attendance dashboard, on a clean white modern office desk. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Live Demo: 30-Second CRM Walkthrough"\n\nHook: "Watch how a CRM manages an entire business operation in 30 seconds."\n\nBody:\n- Screen recording: order added, task assigned, report generated\n- A real client (Pharma In All) using it on the floor\n- Quick summary: time saved per day\n\nCTA: "Get a FREE demo — WhatsApp us!"`
   },
   12: {
     service: "📈 Business Strategy",
-    caption: `💰 Aapka revenue plateau ho gaya hai? Yeh normal hai — aur fixable bhi!\n\nRevenue growth plateau ke 3 main reasons:\n1️⃣ Same target audience tak pohonchna\n2️⃣ No new service/product expansion\n3️⃣ Weak follow-up process\n\nGrowTogether Solutions in teeno problems ko solve karta hai — strategically!\n\nHumne 30+ businesses ki growth strategy banayi hai.\n\nAapki baari! FREE consultation book karo aaj. 📞`,
-    hashtags: `#RevenueGrowth #BusinessStrategy #GrowthHacking #BusinessConsulting #GrowTogetherSolutions #SalesGrowth #BusinessPlanning #EntrepreneurMindset #ScaleUp #BusinessGrowth #StartupGrowth #IndianEntrepreneur #SMEGrowth #ProfitGrowth #BusinessCoach`,
-    imagePrompt: `Revenue growth strategy visualization, upward trending graph, business consultant pointing at growth chart, strategic planning concept, professional boardroom setting, success metrics dashboard, motivational business environment`,
-    script: `🎬 REEL IDEA — "Revenue Plateau Todne Ke 3 Proven Strategies"\n\nHook: "Agar last 6 months mein revenue nahi badhi, toh yeh 3 cheezein try karo!"\n\nBody:\n- Strategy 1: Existing customers upsell\n- Strategy 2: New service/package launch\n- Strategy 3: Referral program setup\n- GrowTogether case study\n\nCTA: "Apni growth strategy banwao — FREE consultation!"`
+    caption: `A revenue plateau is normal — staying there permanently is a choice. 💰\n\nMost businesses that get stuck run into the same three problems:\n1️⃣ Reaching the same audience over and over\n2️⃣ No new service or product expansion\n3️⃣ A weak follow-up process\n\nGrowTogether Strategy Consulting solves all three systematically — not just advice, an actual roadmap.\n\nWe've already built growth strategies for 30+ businesses.\n\nYour turn. Book a free consultation today. 📞`,
+    hashtags: `#RevenueGrowth #BusinessStrategy #GrowTogetherSolutions #GrowthConsulting #ScaleYourBusiness #EntrepreneurMindset #SMEGrowth`,
+    imagePrompt: `A minimalist infographic-style illustration of a growth chart breaking through a plateau line, a single upward arrow, clean flat design on a plain background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "3 Reasons Revenue Is Stuck"\n\nHook: "If revenue hasn't moved in 6 months, check these 3 things."\n\nBody:\n- Reason 1: same audience visual\n- Reason 2: no new offer visual\n- Reason 3: weak follow-up visual\n- GrowTogether roadmap solution frame\n\nCTA: "Build your growth strategy — FREE consultation!"`
   },
   13: {
     service: "📊 PPT Design",
-    caption: `🎨 Aapki next investor meeting ke liye powerful presentation ready hai?\n\nInvestors ke paas time nahi hai boring slides dekhne ka!\n\nGrowTogether Professional PPT Design:\n🌟 Investor-ready pitch decks\n📊 Data visualization jo clear ho\n🎯 Story-driven narrative\n✨ Animations jo engage karein\n⏱️ 24-48 hours fast delivery\n\nEk great presentation = Better chance of getting funded!\n\nContact karo aaj hi. Limited slots available! 🔥`,
-    hashtags: `#PitchDeck #InvestorPresentation #StartupPitch #PPTDesign #GrowTogetherSolutions #PresentationDesign #BusinessPresentation #InvestorDeck #StartupIndia #FundingIndia #PresentationTips #SlideDesign #ProfessionalPPT #VisualStorytelling #BusinessDesign`,
-    imagePrompt: `Stunning investor pitch deck presentation, dark premium theme, financial projections charts, startup metrics dashboard, professional slide design, laptop showing beautiful PPT, confident presenter in boardroom, elegant design aesthetic`,
-    script: `🎬 REEL IDEA — "Ek Presentation Ne Kaise 10 Lakh Ki Funding Dilwayi"\n\nHook: "Design matter karta hai. Yeh real story iska proof hai!"\n\nBody:\n- Client startup story\n- Before: Weak, amateur presentation\n- GrowTogether designed pitch deck\n- After: Investor impressed, funding secured\n- Quick design showcase\n\nCTA: "Apna pitch deck banwao — DM karo!"`
+    caption: `Investors don't have time to read boring slides. What they want is clarity, in under 60 seconds. 🎯\n\nGrowTogether Investor-Ready PPT Design:\n🌟 Pitch decks that pair story with data\n📊 Visualization that's clear, never cluttered\n✨ Clean animation, professional polish\n⏱️ Delivery in 24–48 hours\n\nA strong presentation doesn't just look good — it can be the reason a deal gets funded.\n\nLimited design slots this week. Contact us today. 🔥`,
+    hashtags: `#PitchDeck #InvestorPresentation #StartupIndia #PPTDesign #GrowTogetherSolutions #FundingReady #PresentationDesign`,
+    imagePrompt: `A premium investor pitch deck mockup on a large screen in a bright boardroom, minimal financial charts, a glass table with a laptop, natural daylight. ${THEME_STYLE}`,
+    script: `🎬 REEL — "The 60-Second Investor Rule"\n\nHook: "Investors lose interest in 60 seconds if a slide is confusing."\n\nBody:\n- Quick flash: a cluttered slide, investor looking away\n- Cut to: a clean GrowTogether-designed slide, investor engaged\n- A positive closing moment\n\nCTA: "Get your pitch deck built — DM us!"`
   },
   14: {
     service: "✍️ Content Writing",
-    caption: `🔍 Aapki website Google par kyun nahi aati?\n\nSEO Content Writing se organic traffic badhao!\n\nGrowTogether Content Writing Service:\n📝 Keyword-researched blog articles\n🌐 SEO-optimized web pages\n🎯 Long-form content jo rank kare\n💡 Topic ideas bhi hum suggest karte hain\n📊 Content performance tracking\n\nGood SEO content ek investment hai — jo baar baar return deta hai!\n\nApni website ka FREE SEO content audit karwao aaj. 👇`,
-    hashtags: `#SEOContent #ContentWriting #SEOBlogging #OrganicTraffic #GrowTogetherSolutions #SEOMarketing #ContentSEO #BloggingForBusiness #KeywordResearch #GoogleRanking #DigitalMarketing #WebsiteTraffic #ContentMarketing #SEOIndia #SearchEngineOptimization`,
-    imagePrompt: `SEO content writing concept, Google search results showing ranked website, content writing on laptop, keyword research tools on screen, organic traffic analytics chart, digital marketing workspace, green growth indicators`,
-    script: `🎬 REEL IDEA — "Kaise Ek Blog Article Ne 500 Monthly Visitors Laaye"\n\nHook: "Kya aap jaante ho ek sahi SEO article kitne clients la sakta hai?"\n\nBody:\n- Client website: 0 organic visitors\n- GrowTogether SEO content strategy\n- 3 months later: 500+ monthly organic visitors\n- Traffic to leads conversion\n\nCTA: "FREE SEO content consultation — link bio mein!"`
+    caption: `Ranking on Google isn't luck — it's strategy. 🔍\n\nIf your website isn't bringing in organic traffic, the reason is often the content — written without keywords, without structure.\n\nGrowTogether SEO Content Writing:\n📝 Keyword-researched blog articles\n🌐 Web pages built to actually appear in search\n🎯 Long-form content that ranks and converts\n💡 We plan the topic strategy too\n\nSEO content is an investment that keeps paying off — written once, working for months.\n\nGet a free SEO content audit for your website. 👇`,
+    hashtags: `#SEOContent #ContentWriting #GrowTogetherSolutions #OrganicTraffic #BlogWriting #KeywordStrategy #DigitalMarketing`,
+    imagePrompt: `An SEO content strategy scene with a laptop showing an upward search-ranking graph, sticky notes with keyword ideas on a glass board, minimal bright office. ${THEME_STYLE}`,
+    script: `🎬 REEL — "0 to 500 Visitors"\n\nHook: "One blog article — 0 to 500 monthly visitors. Here's how."\n\nBody:\n- Before: an empty analytics dashboard\n- Content strategy process, quick clips\n- After: a rising traffic graph, leads coming in\n\nCTA: "Get a FREE SEO content consultation — link in bio!"`
   },
   15: {
     service: "🌐 Website Development",
-    caption: `🌟 Happy independence — halfway through July! 🇮🇳\n\nAur aapke business ke liye ek reminder:\n\nAapki website aapka digital India mein sabse bada asset hai!\n\n🚀 GrowTogether Website Development:\n✅ Professional design\n✅ Mobile-first approach\n✅ WhatsApp integration\n✅ Contact forms & booking system\n✅ SEO foundation already built-in\n✅ Fast delivery — 7-14 days\n\n30+ projects successfully delivered!\n\nAapki website kab ban rahi hai? 💬 Baat karte hain!`,
-    hashtags: `#WebsiteIndia #ProfessionalWebsite #GrowTogetherSolutions #WebDevelopmentIndia #BusinessWebsite #DigitalIndia #WebDesign #MobileWebsite #ResponsiveDesign #IndianBusiness #StartupWebsite #OnlineIndia #WebsiteLaunch #BusinessOnline #GujaratBusiness`,
-    imagePrompt: `Indian business website development, professional website on laptop and mobile phone, Indian flag colors subtle in background, modern web design mockup, digital India concept, professional business online presence`,
-    script: `🎬 REEL IDEA — "5 Cheezein Jo Har Professional Business Website Mein Honi Chahiye"\n\nHook: "Agar aapki website mein yeh 5 cheezein nahi hain, toh aap clients lose kar rahe ho!"\n\nBody:\n- Feature 1: Clear call-to-action\n- Feature 2: Mobile responsive\n- Feature 3: Fast loading speed\n- Feature 4: Contact/WhatsApp integration\n- Feature 5: SEO basics\n\nCTA: "FREE website review ke liye message karo!"`
+    caption: `Halfway through the month — and one important reminder. 🌤️\n\nYour website is the one asset that represents your business, non-stop, 24/7.\n\nGrowTogether Website Development:\n✅ Clean, professional design\n✅ Mobile-first approach\n✅ WhatsApp integration built right in\n✅ Contact forms and booking systems\n✅ SEO foundation built-in\n✅ Delivery in 7–14 days\n\n30+ websites already live and running — for clients in India and internationally.\n\nWhen does your website launch? Let's talk. 💬`,
+    hashtags: `#WebsiteDevelopment #ProfessionalWebsite #GrowTogetherSolutions #MobileFirstDesign #BusinessOnline #DigitalIndia #WebDesign`,
+    imagePrompt: `A fresh business website launch concept displayed on a laptop and smartphone side by side, subtle celebratory graphic elements, clean minimal desk setup. ${THEME_STYLE}`,
+    script: `🎬 REEL — "5 Things Every Website Needs"\n\nHook: "If your website is missing these 5 things, you're losing clients."\n\nBody:\n- Clear call-to-action button visual\n- Mobile responsiveness check\n- Fast loading speed timer\n- WhatsApp/contact integration\n- SEO basics checklist tick\n\nCTA: "Get a FREE website review — message us!"`
   },
   16: {
     service: "📧 Email Marketing",
-    caption: `📨 Aapki email list ek goldmine hai — kya aap use kar rahe ho?\n\nEmail Marketing Myths vs Reality:\n\n❌ Myth: "Log emails nahi padhte"\n✅ Reality: 21% average open rate (social se 6x zyada!)\n\n❌ Myth: "Email marketing bahut complex hai"\n✅ Reality: GrowTogether sab handle kar leta hai!\n\n❌ Myth: "Mujhe badi list chahiye"\n✅ Reality: 100 engaged subscribers = 1000 random followers\n\nAapki email strategy banao aaj! 🎯`,
-    hashtags: `#EmailMarketing #EmailList #NewsletterMarketing #EmailStrategy #GrowTogetherSolutions #DigitalMarketing #EmailCampaign #BusinessMarketing #LeadNurturing #EmailROI #MarketingMyths #EmailTips #B2BMarketing #CustomerEngagement #MarketingFacts`,
-    imagePrompt: `Email marketing myths vs reality concept, split screen comparison, professional email dashboard, high open rate analytics, modern email template design, business email strategy visualization, clean professional aesthetic`,
-    script: `🎬 REEL IDEA — "Email Marketing Myths Jo Aapko Paise Cost Kar Rahe Hain"\n\nHook: "Agar aapne email marketing chhod di hai, toh shayad aap wrong reasons ki wajah se!"\n\nBody:\n- Myth 1 debunk with stats\n- Myth 2 with example\n- Myth 3 with case study\n- GrowTogether email results\n\nCTA: "FREE email marketing consult — DM 'EMAIL'!"`
+    caption: `The biggest myths about email marketing — and the reality behind them. 📨\n\n❌ Myth: "People don't read emails"\n✅ Reality: Average open rates are far higher than most social platforms\n\n❌ Myth: "Email marketing is too complex"\n✅ Reality: GrowTogether handles the entire setup and management for you\n\n❌ Myth: "You need a huge list to see results"\n✅ Reality: 100 engaged subscribers outperform 1000 random followers\n\nYour email list is an underused asset. Let's activate it. 🎯`,
+    hashtags: `#EmailMarketing #GrowTogetherSolutions #NewsletterStrategy #EmailROI #B2BMarketing #MarketingMythsBusted #DigitalMarketing`,
+    imagePrompt: `A myth-busting infographic-style scene with a tablet showing a high open-rate email analytics dashboard, clean modern desk, minimalist professional illustration. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Email Marketing Myths Costing You Money"\n\nHook: "If you gave up on email marketing, it might be for the wrong reasons."\n\nBody:\n- Myth 1 with a quick stat overlay\n- Myth 2 with a real example\n- Myth 3 with a case study snippet\n\nCTA: "Get a FREE email consult — DM 'EMAIL'!"`
   },
   17: {
     service: "📱 Social Media Marketing",
-    caption: `📈 Client result share karte hain! 🎉\n\n[Client: Service Business, Gujarat]\nBefore GrowTogether:\n→ 200 followers, 2-3% engagement\n→ Inconsistent posting\n→ 0 leads from social media\n\nAfter 3 months with GrowTogether:\n→ 1200+ followers (6x growth!)\n→ 8% engagement rate\n→ 5-7 qualified leads/month from social\n\nStrategy + Consistency = Results! 💪\n\nAapka business ready hai? Let's grow TOGETHER! 🚀`,
-    hashtags: `#ClientResults #SocialMediaResults #GrowthResults #GrowTogetherSolutions #SocialMediaMarketing #ProvenResults #InstagramGrowth #BusinessResults #MarketingROI #ClientSuccess #RealResults #SocialMediaSuccess #DigitalMarketing #BusinessGrowth #SuccessStory`,
-    imagePrompt: `Business success metrics celebration, before and after analytics comparison, social media growth chart, follower count increase visualization, happy business owner with growth results, achievement concept, vibrant positive energy`,
-    script: `🎬 REEL IDEA — "Real Client Results — 3 Months Social Media Journey"\n\nHook: "Yeh real numbers hain, real client ke — dekho kya hua sirf 3 mahine mein!"\n\nBody:\n- Month 1: Strategy setup, brand voice define\n- Month 2: Consistent content, community building\n- Month 3: Lead generation kicks in\n- Client testimonial\n\nCTA: "Aapka social media journey start karo — DM karo!"`
+    caption: `Sharing a real client result — no filters. 🎉\n\nA service business in Gujarat:\n\nBefore GrowTogether:\nInconsistent posting, low engagement, zero leads from social media.\n\nAfter 3 months:\nSolid follower growth, engagement rate more than doubled, and a steady stream of qualified leads coming directly from social media.\n\nThis isn't magic — it's consistency and the right strategy, applied properly.\n\nIs your business ready to start its own growth chapter? "Growing Together, Winning Together" — let's begin. 🚀`,
+    hashtags: `#ClientResults #GrowTogetherSolutions #SocialMediaSuccess #RealGrowth #BusinessTransformation #MarketingROI #SuccessStory`,
+    imagePrompt: `A before-and-after business growth comparison graphic with an upward trending follower chart, a business owner reviewing analytics on a laptop, bright natural light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "3 Months, Real Numbers"\n\nHook: "This is a real client, real numbers. Here's the 3-month journey."\n\nBody:\n- Month 1: strategy setup, brand voice\n- Month 2: consistent content, community growth\n- Month 3: leads start coming in\n- Quick testimonial line\n\nCTA: "Start your growth journey — DM us!"`
   },
   18: {
     service: "🎓 Staff Training",
-    caption: `💡 Leaders are made, not born — aur hum unhe banate hain!\n\nGrowTogether Leadership Workshop:\n\n🎯 Decision making under pressure\n🤝 Team management skills\n💬 Effective communication\n📊 Performance tracking\n🔥 Accountability culture build karna\n\nAapke managers aur team leaders ko yeh skills chahiye hain business grow karne ke liye!\n\nNext workshop: July mein available slots\n📅 Book karo aaj hi!`,
-    hashtags: `#LeadershipDevelopment #LeadershipTraining #ManagerTraining #TeamLeader #GrowTogetherSolutions #CorporateLeadership #ManagementTraining #BusinessLeadership #LeadershipSkills #TeamManagement #LeadershipWorkshop #GujaratTraining #CorporateDevelopment #SkillDevelopment #LeadershipCoach`,
-    imagePrompt: `Leadership training workshop, confident leader presenting to engaged team, leadership development concept, professional training room, empowerment theme, diverse team members, mentor and mentee interaction, inspiring atmosphere`,
-    script: `🎬 REEL IDEA — "3 Leadership Skills Jo Har Manager Ko Chahiye"\n\nHook: "Ek manager aur ek leader mein fark kya hai? Yeh 3 skills!"\n\nBody:\n- Skill 1: Lead with questions, not answers\n- Skill 2: Build accountability, not fear\n- Skill 3: Develop your team, not depend on them\n- GrowTogether workshop preview\n\nCTA: "Leadership workshop mein join karo — limited seats!"`
+    caption: `Leaders aren't born — they're built. 💡\n\nThe GrowTogether Leadership Workshop teaches:\n🎯 Clear decision-making under pressure\n🤝 Effective team management\n💬 Communication that removes confusion\n📊 Tracking performance the right way\n🔥 Building a culture of accountability\n\nYour managers and team leads need exactly these skills to take the business to the next level.\n\nLimited July slots available. Book today. 📅`,
+    hashtags: `#LeadershipDevelopment #GrowTogetherSolutions #ManagerTraining #TeamLeadership #CorporateWorkshop #LeadershipSkills`,
+    imagePrompt: `A leadership workshop with a trainer engaging a small group of managers around a table, a whiteboard sketched with a leadership framework diagram, bright modern meeting room. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Manager vs. Leader — 3 Skills"\n\nHook: "What's the difference between a manager and a leader? These 3 skills."\n\nBody:\n- Skill 1: leads with questions\n- Skill 2: builds accountability\n- Skill 3: develops the team, doesn't just direct\n- Workshop preview clip\n\nCTA: "Join the leadership workshop — seats limited!"`
   },
   19: {
     service: "💼 CRM Development",
-    caption: `🔧 Har business ka CRM alag hona chahiye — kyunki har business alag hota hai!\n\nGrowTogether Custom CRM Process:\n\n1️⃣ Aapke business ko samjhna (free consultation)\n2️⃣ Workflow map karna\n3️⃣ Custom features design karna\n4️⃣ Build + test karna\n5️⃣ Train karna aapki team ko\n6️⃣ Ongoing support dena\n\nKoi off-the-shelf software nahi — 100% aapke business ke liye!\n\nFREE consultation: Kitne mein banega aapka CRM? WhatsApp karo! 💬`,
-    hashtags: `#CustomCRMDevelopment #CRMProcess #BusinessSoftware #CustomSoftware #GrowTogetherSolutions #CRMDesign #BusinessWorkflow #ProcessAutomation #CustomDevelopment #SoftwareDevelopment #BusinessTech #CRMConsulting #TechForBusiness #IndiaDigital #BusinessDigitization`,
-    imagePrompt: `Custom software development process visualization, wireframes and mockups on screen, developer workflow diagram, custom CRM design process, professional tech workspace, blueprint to final product concept, modern development environment`,
-    script: `🎬 REEL IDEA — "Step-by-Step: Kaise Banta Hai Custom CRM"\n\nHook: "Sochte ho CRM banana bahut complex hai? Dekho yeh simple 6-step process!"\n\nBody:\n- Animated step-by-step process walkthrough\n- Client consultation clip\n- Design mockup reveal\n- Final CRM product showcase\n- Team using it seamlessly\n\nCTA: "Step 1 start karo — FREE consultation book karo!"`
+    caption: `Off-the-shelf software rarely fits a business perfectly — because every business runs differently. 🔧\n\nGrowTogether Custom CRM Process:\n1️⃣ Understanding your business — through a free consultation\n2️⃣ Mapping your full workflow\n3️⃣ Designing custom features\n4️⃣ Building and thorough testing\n5️⃣ Training your team\n6️⃣ Ongoing support, even after delivery\n\nNo cookie-cutter software — only the exact features your business actually needs.\n\nWhat would your CRM cost? Find out in a free consultation. 💬`,
+    hashtags: `#CustomCRMDevelopment #GrowTogetherSolutions #BusinessSoftware #CRMProcess #TechConsulting #ProcessAutomation`,
+    imagePrompt: `A software development process visualization showing clean wireframe sketches transitioning into a polished CRM dashboard mockup, minimal white desk with sticky notes. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Step-by-Step: How a CRM Gets Built"\n\nHook: "Think building a CRM is complicated? Here's the simple 6-step process."\n\nBody:\n- Animated step walkthrough (consultation → mapping → design → build → train → support)\n- Real mockup reveal\n- Final product on the client's screen\n\nCTA: "Start step 1 — book a FREE consultation!"`
   },
   20: {
     service: "📈 Business Strategy",
-    caption: `🗺️ Bina roadmap ke business chalana andheron mein chalana hai!\n\nGrowTogether Business Roadmap Service:\n\n📊 Current business audit (kahan ho aap)\n🎯 Goal setting (kahan jaana chahते ho)\n🛣️ Step-by-step action plan\n📅 Monthly milestones set karna\n📈 Progress tracking system\n\nHum sirf plan nahi banate — implementation mein bhi saath rehte hain!\n\n"Your Growth, Our Mission" — yeh sirf tagline nahi, yeh humara commitment hai.\n\nFREE strategy session: WhatsApp karo aaj! 🤝`,
-    hashtags: `#BusinessRoadmap #BusinessPlan #ActionPlan #GrowTogetherSolutions #BusinessStrategy #GoalSetting #BusinessMilestones #GrowthPlan #BusinessConsulting #EntrepreneurGuide #StartupPlan #BusinessGoals #StrategicPlanning #BusinessSuccess #IndianBusiness`,
-    imagePrompt: `Business roadmap strategy concept, GPS navigation metaphor for business, milestone markers on path to success, strategic planning board, business journey visualization, professional consultant creating roadmap, goal achievement concept`,
-    script: `🎬 REEL IDEA — "Aapka Business Roadmap 30 Minutes Mein Kaise Banate Hain"\n\nHook: "30 minutes mein main aapko dikhaunga ki aapka business agle 6 months mein kaha ja sakta hai!"\n\nBody:\n- Quick roadmap framework\n- Current state assessment\n- Goal setting process\n- Action plan creation\n- GrowTogether support system\n\nCTA: "FREE roadmap session book karo — aaj!"`
+    caption: `Running a business without a roadmap is like driving in the dark. 🗺️\n\nGrowTogether Business Roadmap Service:\n📊 An honest business audit — where you stand right now\n🎯 Clear goal-setting — where you need to go\n🛣️ A step-by-step action plan\n📅 Monthly milestones\n📈 A progress tracking system\n\nWe don't just build the plan — we stay with you through the entire implementation.\n\n"Your Growth, Our Mission" isn't just a line — it's how we work.\n\nWhatsApp us for a free strategy session. 🤝`,
+    hashtags: `#BusinessRoadmap #GrowTogetherSolutions #StrategicPlanning #GrowthPlan #EntrepreneurGuide #BusinessMilestones`,
+    imagePrompt: `A minimalist illustration of a winding roadmap path with milestone flags leading toward a bright horizon, flat design on a clean plain background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "The 30-Minute Roadmap"\n\nHook: "In 30 minutes, I'll show you where your business could be in 6 months."\n\nBody:\n- Quick roadmap framework walkthrough\n- Current state → goal → milestones\n- GrowTogether ongoing support visual\n\nCTA: "Book your FREE roadmap session — today!"`
   },
   21: {
     service: "📊 PPT Design",
-    caption: `📋 Team meeting presentations bore karte hain? Hum badal sakte hain!\n\nInternal presentations bhi professional honi chahiye!\n\nGrowTogether Business Presentation Services:\n\n📊 Sales meeting presentations\n📈 Monthly performance reports\n🎓 Training materials\n💼 Board meeting decks\n🌟 Client proposal presentations\n\nEk professional presentation team ko energize bhi karti hai aur clients ko impress bhi!\n\nAapki next meeting kab hai? Hum help kar sakte hain! 📞`,
-    hashtags: `#BusinessPresentation #TeamPresentation #SalesPresentation #GrowTogetherSolutions #PPTDesign #ProfessionalPPT #MeetingPresentation #ClientPresentation #PerformanceReport #TrainingMaterials #PresentationDesign #CorporatePPT #BusinessDesign #PresentationTips #VisualCommunication`,
-    imagePrompt: `Professional business meeting presentation, boardroom with large screen showing data-rich slides, engaged team members, corporate presentation design, professional atmosphere, charts and graphs clearly visible, modern conference room`,
-    script: `🎬 REEL IDEA — "Kaise Ek Boring Report Ko Powerful Presentation Mein Badla"\n\nHook: "Yeh client ka monthly report tha. Boring, text-heavy, nobody read it. Phir GrowTogether ne touch kiya..."\n\nBody:\n- Original boring report slides\n- Transformation process\n- Final professional presentation\n- Client's reaction and results\n\nCTA: "Apni next presentation banwao — DM karo!"`
+    caption: `Internal presentations shouldn't be boring either — your team deserves the same energy your clients get. 📋\n\nGrowTogether Business Presentation Services:\n📊 Sales meeting decks\n📈 Monthly performance reports that are easy to follow\n🎓 Training materials that actually engage\n💼 Board meeting presentations\n🌟 Client proposal decks\n\nA well-designed internal presentation aligns your team just as much as it impresses your clients.\n\nNeed slides ready for your next meeting? Contact us. 📞`,
+    hashtags: `#BusinessPresentation #GrowTogetherSolutions #TeamPresentation #PerformanceReports #CorporatePPT #PresentationDesign`,
+    imagePrompt: `A bright corporate meeting room with a team viewing a clean, data-rich presentation on a large screen, modern minimal boardroom, natural daylight. ${THEME_STYLE}`,
+    script: `🎬 REEL — "From Boring Report to Powerful Presentation"\n\nHook: "Nobody read this monthly report. The design changed — everything changed."\n\nBody:\n- Original text-heavy report slides\n- Transformation process, quick cuts\n- Final clean presentation, engaged team\n\nCTA: "Get your next presentation built — DM us!"`
   },
   22: {
     service: "✍️ Content Writing",
-    caption: `📖 Brand storytelling — sabse powerful marketing tool jo log ignore karte hain!\n\nLogon ko data yaad nahi rehti — stories yaad rehti hain!\n\nGrowTogether Story Writing Service:\n\n🌱 Aapki brand ki origin story\n💡 Client success stories\n👥 Team ka human side dikhana\n🏆 Journey from struggle to success\n📱 Social media micro-stories\n\nEk compelling brand story aapko competition se alag karta hai!\n\nAapki story kya hai? Hum use duniya ko sunana chahte hain. 🎯`,
-    hashtags: `#BrandStorytelling #StoryWriting #ContentMarketing #BrandStory #GrowTogetherSolutions #StorytellingMarketing #BrandNarrative #OriginStory #BusinessStory #ContentCreation #BrandBuilding #MarketingContent #StorytellingBusiness #AuthenticMarketing #BrandVoice`,
-    imagePrompt: `Brand storytelling concept, open book with business story flowing into social media, narrative journey visualization, storyteller concept, creative writing workspace, brand journey timeline, authentic business story concept`,
-    script: `🎬 REEL IDEA — "GrowTogether Ki Kahani — Shuru Se Aaj Tak"\n\nHook: "6 saal pehle yeh sirf ek idea tha. Aaj 30+ clients, 500+ trained professionals. Yeh hai hamari story."\n\nBody:\n- How GrowTogether started\n- First client story\n- Key growth moments\n- Current achievements\n- Future vision\n\nCTA: "Aapki story bhi likhi jaye — content service ke liye DM karo!"`
+    caption: `People don't remember data — they remember stories. 📖\n\nGrowTogether Story Writing Service:\n🌱 Your brand's origin story\n💡 Client success stories that build trust\n👥 Showing the human side of your team\n🏆 Struggle-to-success journey narratives\n📱 Bite-sized stories for social media\n\nA compelling brand story sets you apart instantly — because facts get forgotten, feelings don't.\n\nWhat's your story? We'll help you write it. 🎯`,
+    hashtags: `#BrandStorytelling #GrowTogetherSolutions #ContentMarketing #StoryWriting #BrandNarrative #AuthenticMarketing`,
+    imagePrompt: `A storytelling concept with an open notebook, a handwritten brand story flowing into a simple illustrated timeline, calm minimalist creative writing desk with natural light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "GrowTogether's Own Story"\n\nHook: "6 years ago this was just an idea. Today: 30+ projects, 500+ trained professionals."\n\nBody:\n- Quick origin moment\n- First client milestone\n- Key growth points\n- Present-day snapshot\n\nCTA: "Want your story written? DM us for content services!"`
   },
   23: {
     service: "🌐 Website Development",
-    caption: `📱 Kya aapki website mobile pe acha dikhti hai?\n\n60%+ internet traffic mobile se aata hai!\n\nGrowTogether Mobile-First Website Development:\n\n✅ Fast loading on all devices\n✅ Touch-friendly navigation\n✅ Readable fonts on small screens\n✅ Click-to-call / WhatsApp buttons\n✅ Easy contact forms\n✅ Google Mobile-Friendly certified\n\nAgar mobile experience kharab hai — toh aap visitors ko khoh rahe ho!\n\nFREE mobile website audit ke liye message karo. 📱`,
-    hashtags: `#MobileWebsite #MobileFriendly #ResponsiveWebDesign #GrowTogetherSolutions #MobileFirst #WebDevelopment #MobileUX #GoogleMobileFriendly #WebsiteOptimization #BusinessWebsite #MobileMarketing #WebDesignIndia #UXDesign #MobileTraffic #WebsiteAudit`,
-    imagePrompt: `Mobile-first website design concept, website displayed on iPhone and Android phones, responsive design across devices, mobile UX design mockup, smartphone web browsing, clean mobile interface, professional mobile website showcase`,
-    script: `🎬 REEL IDEA — "Mobile Website Test: Pass Ya Fail?"\n\nHook: "30 seconds mein check karo — kya aapki website mobile pe fail ho rahi hai?"\n\nBody:\n- Live demo: Checking a website on mobile\n- Common mobile website failures\n- What a good mobile website looks like\n- GrowTogether mobile-first development\n\nCTA: "FREE mobile audit — website URL DM karo!"`
+    caption: `Most of your traffic comes from mobile — does your website actually look good there? 📱\n\nGrowTogether Mobile-First Website Development:\n✅ Fast loading on every device\n✅ Touch-friendly, easy navigation\n✅ Readable fonts even on small screens\n✅ Direct click-to-call / WhatsApp buttons\n✅ Simple, working contact forms\n\nIf the mobile experience is weak, you're silently losing visitors — without ever knowing it.\n\nGet a free mobile website audit for your site. Message us. 📱`,
+    hashtags: `#MobileWebsite #ResponsiveDesign #GrowTogetherSolutions #MobileFirst #WebsiteOptimization #UXDesign`,
+    imagePrompt: `A mobile-first website design showcase with a smartphone displaying a clean, responsive business site, minimal background, a hand holding the phone naturally. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Mobile Test: Pass or Fail?"\n\nHook: "Check in 30 seconds — is your website failing on mobile?"\n\nBody:\n- Live scroll test on a weak mobile site\n- Comparison with a clean, fast mobile site\n- Simple checklist overlay\n\nCTA: "Get a FREE mobile audit — send your website link!"`
   },
   24: {
     service: "📧 Email Marketing",
-    caption: `🎯 Cold email se clients kaise laate hain — sahi tarika!\n\nCold email = Jab aap kisi unknown prospect ko email karo.\n\nGrowTogether Cold Email Formula:\n\n1️⃣ Research: Prospect ko samjho pehle\n2️⃣ Subject line: Curiosity ya value-driven\n3️⃣ Opening: Unke baare mein, aapke baare mein nahi\n4️⃣ Value proposition: 2-3 lines mein\n5️⃣ CTA: Ek simple next step\n6️⃣ Follow-up: 3-4 touch points\n\nHum aapke liye yeh poori process manage karte hain!\n\n📧 Professional cold email outreach: Contact karo!`,
-    hashtags: `#ColdEmail #EmailOutreach #LeadGeneration #B2BMarketing #GrowTogetherSolutions #SalesEmail #ProspectingTips #EmailStrategy #BusinessDevelopment #SalesMarketing #ColdEmailStrategy #LeadNurturing #B2BSales #EmailCopywriting #OutreachMarketing`,
-    imagePrompt: `Professional cold email outreach concept, laptop with email being composed, target audience visualization, lead generation pipeline, email sequence workflow, business development concept, modern sales workspace, email analytics`,
-    script: `🎬 REEL IDEA — "Cold Email Jo Actually Reply Laata Hai — Template Dekho"\n\nHook: "Yeh email template ne 40% reply rate diya. Seriously."\n\nBody:\n- Common bad cold email example\n- GrowTogether's winning formula breakdown\n- Good cold email example\n- Results from actual campaign\n\nCTA: "Cold email service ke liye DM karo — limited slots!"`
+    caption: `Done right, cold email can become one of the most underrated lead sources you have. 🎯\n\nGrowTogether Cold Email Formula:\n1️⃣ Research the prospect first\n2️⃣ Subject line — curiosity or value-driven\n3️⃣ Open about them, not about you\n4️⃣ A clear value proposition in 2-3 lines\n5️⃣ One simple, clear call to action\n6️⃣ A follow-up sequence — 3-4 touchpoints\n\nWe manage this entire outreach process for you, start to finish.\n\nContact us for professional cold email outreach. 📧`,
+    hashtags: `#ColdEmail #LeadGeneration #GrowTogetherSolutions #B2BOutreach #EmailStrategy #SalesEmail`,
+    imagePrompt: `A cold email outreach concept with a laptop screen showing a clean email sequence flow diagram, a simple funnel illustration, minimal modern desk with soft daylight. ${THEME_STYLE}`,
+    script: `🎬 REEL — "A Cold Email That Gets Replies"\n\nHook: "This email template got a strong reply rate — here's how."\n\nBody:\n- A bad cold email example (too salesy)\n- The GrowTogether formula, broken down line by line\n- A good example with results overlay\n\nCTA: "DM us for cold email outreach!"`
   },
   25: {
     service: "📱 Social Media Marketing",
-    caption: `🎬 Video content 2026 mein king hai — kya aap already create kar rahe ho?\n\nGrowTogether Video Content Service:\n\n📱 Short reels (15-60 sec)\n🎯 Educational content jo authority build kare\n💡 Behind-the-scenes business videos\n📊 Client testimonial videos\n🔥 Trend-based content\n\nHumara package mein 2 professional videos per month include hain!\n\nVideo marketing se conversion rate 80% tak badh sakta hai!\n\nAapka next video kab ban raha hai? 🎬`,
-    hashtags: `#VideoMarketing #ReelsMarketing #ShortFormVideo #GrowTogetherSolutions #VideoContent #InstagramReels #LinkedInVideo #ContentMarketing #VideoStrategy #BusinessVideo #ReelsTrend #SocialMediaVideo #VideoProduction #MarketingVideo #ContentCreation`,
-    imagePrompt: `Video content creation for business, professional video shoot setup, creator filming business content, multiple device screens showing video content, reels and short video concept, modern content creation studio, video marketing analytics`,
-    script: `🎬 REEL IDEA — "Kyun Video Content Har Business Ke Liye Zaruri Hai"\n\nHook: "Text post pe 2% engagement, video post pe 8%. Aap kya prefer karoge?"\n\nBody:\n- Video vs text engagement statistics\n- Types of videos that work for businesses\n- GrowTogether video content examples\n- Easy video ideas for any business\n\nCTA: "Video content package ke liye DM karo!"`
+    caption: `Video content isn't optional anymore — it's the expectation. 🎬\n\nGrowTogether Video Content Service:\n📱 Short reels (15–60 sec)\n🎯 Educational content that builds authority\n💡 Behind-the-scenes clips that feel real\n📊 Client testimonial videos\n🔥 Trend-aligned content, in your brand's own tone\n\n2 professional videos are already included in the monthly package.\n\nVideo can significantly lift conversion — when the content is right.\n\nWhen's your next video shoot? 🎥`,
+    hashtags: `#VideoMarketing #ReelsMarketing #GrowTogetherSolutions #ShortFormVideo #ContentCreation #InstagramReels`,
+    imagePrompt: `A video content creation setup with a smartphone on a small tripod filming a product on a clean white desk, soft ring light glow, minimal modern content studio. ${THEME_STYLE}`,
+    script: `🎬 REEL — "Text Post vs. Video Post"\n\nHook: "One text post. One video post. Same message. Different results."\n\nBody:\n- Text post engagement number (low)\n- Video post engagement number (much higher)\n- Quick tips: 3 easy video ideas for any business\n\nCTA: "DM us for a video content package!"`
   },
   26: {
     service: "🎓 Staff Training",
-    caption: `📱 Kya aapki team digital tools sahi se use kar rahi hai?\n\nDigital Skills Gap = Business Gap!\n\nGrowTogether Digital Tools Training:\n\n📊 MS Excel (advanced level)\n💼 CRM software training\n📧 Google Workspace mastery\n📝 Notion & project management\n🎨 Canva for business\n📊 Data analysis basics\n\nAapki team jo tools already haath mein hai, unhe 100% use karna seekhe!\n\n📅 Next batch: July end mein\nBook karo aaj hi! 🔥`,
-    hashtags: `#DigitalSkillsTraining #DigitalTools #ExcelTraining #CRMTraining #GrowTogetherSolutions #GoogleWorkspace #DigitalTransformation #TeamDigitalSkills #StaffDevelopment #TechTraining #OfficeTools #ProductivityTools #DigitalLiteracy #BusinessDigitization #SkillUpgrade`,
-    imagePrompt: `Digital tools training session, team members learning on laptops, Excel spreadsheet and CRM software on screens, modern digital training environment, hands-on learning concept, professional development workshop, technology training room`,
-    script: `🎬 REEL IDEA — "Top 3 Digital Skills Jo Har Employee Ko Aani Chahiye"\n\nHook: "Yeh 3 digital skills nahi aati toh business mein peeche reh jaate ho!"\n\nBody:\n- Skill 1: Excel data management (quick demo)\n- Skill 2: CRM usage (efficiency example)\n- Skill 3: Google Workspace collaboration\n- GrowTogether training program preview\n\nCTA: "Team training book karo — message karo!"`
+    caption: `Your team has digital tools in hand — but are they using them to the fullest? 📱\n\nGrowTogether Digital Tools Training:\n📊 Advanced MS Excel\n💼 CRM software training\n📧 Google Workspace mastery\n📝 Project management tools (Notion, etc.)\n🎨 Canva basics for everyday content\n📊 Simple data analysis skills\n\nThe goal is simple — get maximum output from the tools your team already has.\n\nSeats for the final July batch are limited. Book today. 🔥`,
+    hashtags: `#DigitalSkillsTraining #GrowTogetherSolutions #ExcelTraining #CRMTraining #GoogleWorkspace #TeamProductivity`,
+    imagePrompt: `A digital skills training session with a small team learning around laptops, spreadsheets and a dashboard visible on screens, bright modern training room with natural light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "3 Digital Skills Every Employee Needs"\n\nHook: "Miss these 3 digital skills, and your business falls behind."\n\nBody:\n- Excel quick demo\n- CRM efficiency example\n- Google Workspace collaboration clip\n\nCTA: "Book team training — message us!"`
   },
   27: {
     service: "💼 CRM Development",
-    caption: `💰 CRM mein investment kitna sense banata hai? Numbers dekho!\n\nBina CRM (manual work):\n❌ 3-4 hours/day data entry\n❌ Orders miss hone ka risk\n❌ Follow-up bhool jaana\n❌ Report banana = 2 hours\n\nGrowTogether Custom CRM ke saath:\n✅ 30 min/day automation se\n✅ Zero missed orders\n✅ Auto reminders & follow-ups\n✅ Real-time reports, instant\n\nROI: Time saved × Team size × Daily = Bahut bada number!\n\nCalculation chahiye aapke business ke liye? WhatsApp karo! 📊`,
-    hashtags: `#CRMROI #BusinessAutomation #CRMBenefits #GrowTogetherSolutions #TimeSaving #BusinessEfficiency #CRMValue #AutomationROI #BusinessROI #CRMInvestment #ProcessAutomation #BusinessProductivity #WorkflowAutomation #SmallBusinessCRM #CRMSoftware`,
-    imagePrompt: `ROI calculation concept for CRM software, time saved visualization, efficiency comparison chart, business automation benefits, before and after business workflow, cost savings infographic, professional business analytics`,
-    script: `🎬 REEL IDEA — "CRM ROI Calculator — Live Calculation"\n\nHook: "Main live calculate karta hun kitna CRM aapke business ke liye kama sakta hai!"\n\nBody:\n- Take viewer through ROI calculation\n- Time saved per employee per day\n- Multiply by team size and work days\n- Show the annual value of automation\n- GrowTogether CRM investment comparison\n\nCTA: "Apna CRM ROI calculate karwao — FREE consult!"`
+    caption: `Does investing in a CRM actually make sense? Let the numbers speak. 💰\n\nWith manual work: hours lost daily to data entry, the risk of missed orders, forgotten follow-ups, and reports that take forever to build.\n\nWith a GrowTogether Custom CRM: daily tasks done in minutes, zero missed orders, automatic reminders, and instant real-time reports.\n\nTime saved × team size × every day = a big number that goes straight to your bottom line.\n\nWant this calculation done for your business? WhatsApp us. 📊`,
+    hashtags: `#CRMROI #BusinessAutomation #GrowTogetherSolutions #TimeSavingTech #ProcessAutomation #CRMInvestment`,
+    imagePrompt: `A ROI comparison infographic split visual showing cluttered manual paperwork on one side and a clean automated CRM dashboard on the other, minimal background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "CRM ROI — Live Calculation"\n\nHook: "I'll calculate live how much a CRM could save you."\n\nBody:\n- Time saved per employee per day\n- Multiplied across team size and month\n- Final annual value number reveal\n\nCTA: "Get your CRM ROI calculated — FREE consult!"`
   },
   28: {
     service: "📈 Business Strategy",
-    caption: `🤝 Aapke existing clients hi aapki sabse badi growth opportunity hain!\n\nClient Retention Strategy — GrowTogether approach:\n\n💌 Regular check-in touchpoints\n🎁 Value-added services offer karna\n📊 Progress reports share karna\n🔄 Upsell relevant services at right time\n⭐ Feedback collect karna and act karna\n\nNew client laana = 5x costly hota hai existing client retain karne se!\n\nAapki client retention strategy kya hai?\n\nFREE business strategy session: Book karo! 🎯`,
-    hashtags: `#ClientRetention #CustomerRetention #BusinessStrategy #GrowTogetherSolutions #ClientRelationship #RetentionStrategy #BusinessGrowth #CustomerSuccess #ClientManagement #UpsellStrategy #BusinessConsulting #CustomerLoyalty #RetentionMarketing #BusinessTips #IndianBusiness`,
-    imagePrompt: `Client retention strategy concept, long-term business relationship visualization, loyalty and partnership theme, business consultant with satisfied clients, relationship management concept, growth through retention analytics, warm professional colors`,
-    script: `🎬 REEL IDEA — "5 Ways Jo Humne Client Retention 90% Pe Rakhi"\n\nHook: "Humhare 90% clients long-term hain. Yeh 5 cheezein karte hain hum!"\n\nBody:\n- Retention tip 1: Proactive communication\n- Retention tip 2: Surprise value additions\n- Retention tip 3: Regular reporting\n- Retention tip 4: Strategic upselling\n- Retention tip 5: Feedback implementation\n\nCTA: "Apni retention strategy improve karo — FREE consult!"`
+    caption: `Winning a new client costs far more than retaining an existing one. 🤝\n\nGrowTogether Client Retention Approach:\n💌 Regular check-ins, not just when there's a problem\n🎁 Value-added services offered at the right time\n📊 Transparent progress reports\n🔄 Relevant upselling at the right moment\n⭐ Collecting feedback — and actually acting on it\n\nYour existing client list is already your biggest growth opportunity.\n\nWhat's your retention strategy right now? Book a free business strategy session. 🎯`,
+    hashtags: `#ClientRetention #GrowTogetherSolutions #CustomerRelationship #RetentionStrategy #BusinessConsulting #ClientSuccess`,
+    imagePrompt: `A client relationship illustration with a handshake icon above a simple loyalty growth chart, minimal flat design on a clean plain background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "5 Ways We Keep Clients Long-Term"\n\nHook: "Most of our clients stay long-term. Here's what we do."\n\nBody:\n- Tip 1: proactive communication\n- Tip 2: surprise value adds\n- Tip 3: regular reporting\n- Tip 4: right-time upselling\n- Tip 5: acting on feedback\n\nCTA: "Improve your retention strategy — FREE consult!"`
   },
   29: {
     service: "📊 PPT Design",
-    caption: `🌟 Corporate training materials bhi design matter karte hain!\n\nGrowTogether Training Material Design:\n\n📚 Training manuals & workbooks\n🖥️ E-learning slide decks\n📊 Process flow diagrams\n🎯 Workshop activity sheets\n📋 Assessment templates\n🎨 Brand-consistent throughout\n\nAcha designed training material = Better learning retention = Better trained team!\n\nAapki next training ke liye professional materials chahiye?\n\nContact karo — delivery in 48 hours! ⚡`,
-    hashtags: `#TrainingMaterials #LearningDesign #InstructionalDesign #GrowTogetherSolutions #CorporateTraining #ELearning #TrainingPresentation #WorkshopDesign #LearningAndDevelopment #HRMaterials #EmployeeTraining #TrainingDesign #CorporateDesign #LearningMaterials #ProfessionalDesign`,
-    imagePrompt: `Professional training material design, beautifully designed workbook and presentation slides, e-learning module on laptop screen, organized learning materials, corporate training aesthetic, colorful and engaging educational design, modern instructional design`,
-    script: `🎬 REEL IDEA — "Before vs After: Training Material Transformation"\n\nHook: "Ek boring training manual aur ek engaging one mein sirf design ka fark hota hai. Dekho!"\n\nBody:\n- Before: Text-heavy, boring training document\n- GrowTogether design transformation process\n- After: Visually engaging, easy to follow material\n- Trainer feedback on learning outcomes\n\nCTA: "Training materials redesign karwao — DM karo!"`
+    caption: `Training materials deserve the same design attention as client-facing decks. 🌟\n\nGrowTogether Training Material Design:\n📚 Training manuals and workbooks\n🖥️ E-learning slide decks\n📊 Clear process flow diagrams\n🎯 Workshop activity sheets\n📋 Assessment templates\n🎨 Fully brand-consistent\n\nWell-designed materials lead to better learning retention — and that shows up directly in team performance.\n\nNeed materials for your next training? 48-hour delivery. ⚡`,
+    hashtags: `#TrainingMaterials #InstructionalDesign #GrowTogetherSolutions #LearningAndDevelopment #ELearningDesign #CorporateTraining`,
+    imagePrompt: `A training workbook design mockup with a clean e-learning slide layout on a laptop screen beside a printed workbook, minimal bright desk with natural light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "From Boring Manual to Engaging Workbook"\n\nHook: "The difference is design — same content, different learning outcome."\n\nBody:\n- Before: dense text-only manual\n- Transformation process\n- After: visual, structured, engaging material\n\nCTA: "Redesign your training materials — DM us!"`
   },
   30: {
     service: "✍️ Content Writing",
-    caption: `🏆 July ka aakhri post — aur ek power tip!\n\n"Consistency beats perfection in content marketing."\n\nIsliye hum 31 din ka content pehle se plan karte hain!\n\nGrowTogether Content Planning Service:\n\n📅 30-day content calendar\n✍️ Captions pre-written\n🎨 Image briefs prepared\n#️⃣ Hashtag sets ready\n📊 Performance tracking setup\n\nAb August ka content plan bhi shuru karo — aheadof time!\n\nGrowTogether ke saath agle month ka content banwao. DM karo! 🚀`,
-    hashtags: `#ContentPlanning #ContentCalendar #ContentStrategy #GrowTogetherSolutions #ContentMarketing #PlanAhead #ContentConsistency #MarketingPlanning #SocialMediaPlanning #ContentCreation #MarketingCalendar #BusinessContent #ContentBatch #StrategicContent #MarketingStrategy`,
-    imagePrompt: `Content planning and calendar concept, organized content calendar on desk, planning board with sticky notes, content strategy visualization, laptop with content calendar software, organized workspace, strategic planning aesthetic, successful content creator environment`,
-    script: `🎬 REEL IDEA — "Hum July Ka Poora Content Kaise Plan Karte Hain"\n\nHook: "Content consistency ka secret? Plan karo pehle se!"\n\nBody:\n- GrowTogether content planning process\n- 30-day calendar creation\n- Batch content creation\n- Scheduling and automation\n- Results of consistent posting\n\nCTA: "August ka content plan banwao — aaj hi DM karo!"`
+    caption: `Second-to-last post of July — and one simple truth: consistency beats perfection in content marketing. 🏆\n\nThat's why we plan content in advance, for the entire month.\n\nGrowTogether Content Planning Service:\n📅 A 30-day content calendar\n✍️ Captions written ahead of time\n🎨 Image briefs ready to go\n#️⃣ Hashtag sets prepared\n📊 Performance tracking set up\n\nNow's the right time to start planning August — not scrambling last minute.\n\nGet next month's content built now. DM us. 🚀`,
+    hashtags: `#ContentPlanning #ContentCalendar #GrowTogetherSolutions #ConsistencyOverPerfection #MarketingCalendar #StrategicContentPlanning`,
+    imagePrompt: `A content planning desk scene with a monthly calendar covered in color-coded sticky notes, a laptop open to a planning spreadsheet, minimal bright workspace with natural light. ${THEME_STYLE}`,
+    script: `🎬 REEL — "How We Plan an Entire Month"\n\nHook: "The secret to content consistency? Plan ahead."\n\nBody:\n- Calendar creation process\n- Batch content prep\n- Scheduling walkthrough\n- Result: consistent posting, steady growth\n\nCTA: "Get your August content plan built — DM us today!"`
   },
   31: {
     service: "📱 Social Media Marketing",
-    caption: `🎉 July 2026 complete! Kya aapka business is mahine grow kiya?\n\nAgar nahi, toh August mein GrowTogether ke saath shuru karo!\n\n📊 Monthly package mein milta hai:\n✅ 10 professional images\n✅ 2 engaging videos\n✅ Captions + hashtags\n✅ Content calendar\n✅ Performance report\n✅ Strategy consultation\n\nHum aapka social media sambhal lete hain — aap apna core business sambhalo!\n\n🚀 August slot limited hain — aaj book karo!\n\n📞 +91 99797 01232\n💬 wa.me/919979701232`,
-    hashtags: `#JulyEnd #AugustPlanning #SocialMediaMarketing #GrowTogetherSolutions #MonthlyPackage #ContentMarketing #BusinessGrowth #SocialMediaManagement #ContentCreation #DigitalMarketing #AugustContent #BusinessSuccess #MarketingPackage #RajkotBusiness #GrowTogether`,
-    imagePrompt: `Month completion celebration concept, July calendar with checkmarks, August preview, business achievement celebration, growth momentum visualization, forward-looking business success, motivational achievement aesthetic, vibrant colors`,
-    script: `🎬 REEL IDEA — "July Mein Kya Seekha — August Ke Liye Plan"\n\nHook: "July khatam. August shuru. Kya aapka marketing plan ready hai?"\n\nBody:\n- July recap: What worked in content\n- Key lessons from this month\n- August content strategy preview\n- GrowTogether's August planning offer\n- Early bird discount announcement\n\nCTA: "August package book karo — limited slots! DM karo!"`
+    caption: `July's done — ready for August? 🎉\n\nIf growth felt a little slow this month, August is your fresh start.\n\nThe monthly package includes:\n✅ 10 professional images\n✅ 2 engaging videos\n✅ Captions + hashtags, unique for every post\n✅ A full content calendar\n✅ A monthly performance report\n✅ Strategy consultation included\n\nWe handle your social media — you focus on growing the core business.\n\nAugust slots are limited. "Growing Together, Winning Together" — let's get started.\n\n📞 +91 99797 01232\n💬 wa.me/919979701232`,
+    hashtags: `#AugustPlanning #GrowTogetherSolutions #SocialMediaManagement #MonthlyMarketingPackage #BusinessGrowth #YourGrowthOurMission`,
+    imagePrompt: `A month-end to new-month transition concept with a calendar page turning from July to August, subtle celebratory graphic elements, minimal bright background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "July Recap, August Plan"\n\nHook: "July's over. August is here. Is your plan ready?"\n\nBody:\n- Quick July recap: what worked\n- Key lesson learned\n- August strategy preview\n- Early booking offer mention\n\nCTA: "Book your August package — limited slots! DM us!"`
   }
 };
 
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
 function selectDay(day){
-  // Update calendar highlight
   document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('active'));
   event.target.classList.add('active');
-  // Update dropdown
   document.getElementById('date-select').value = day;
-  // Show content
   showContent();
 }
 
 function showContent(){
   const select = document.getElementById('date-select');
   const day = parseInt(select.value);
-  if(!day){ alert('Pehle ek date select karo!'); return; }
+  if(!day){ alert('Please select a date first!'); return; }
 
   const data = content[day];
-  if(!data){ alert('Is din ka content available nahi hai.'); return; }
+  if(!data){ alert('No content available for this day.'); return; }
 
-  // Date string
   const date = new Date(2026, 6, day);
   const dayName = days[date.getDay()];
   document.getElementById('result-date').textContent = `${String(day).padStart(2,'0')} July 2026 — ${dayName}`;
   document.getElementById('result-service').textContent = data.service;
 
-  // Fill content
   document.getElementById('caption-text').textContent = data.caption;
   document.getElementById('hashtag-text').textContent = data.hashtags;
   document.getElementById('script-text').textContent = data.script;
 
-  // Image — Pollinations.ai free, no API key needed
   const seed = day * 137;
-  const encoded = encodeURIComponent(data.imagePrompt + ', professional, high quality, business');
+  const encoded = encodeURIComponent(data.imagePrompt);
   const img = document.getElementById('post-image');
   img.onerror = function(){
-    // Fallback: show placeholder with prompt text
     this.onerror = null;
     this.src = `https://picsum.photos/seed/${seed}/600/400`;
   };
   img.src = `https://image.pollinations.ai/prompt/${encoded}?width=600&height=400&seed=${seed}&nologo=true`;
 
-  // Show result
   const result = document.getElementById('result');
   result.classList.add('visible');
   result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  // Highlight calendar
   document.querySelectorAll('.cal-day').forEach(d => {
     d.classList.toggle('active', d.textContent.trim() === String(day));
   });
@@ -543,7 +540,7 @@ function copyAll(){
   const hashtags = document.getElementById('hashtag-text').textContent;
   const script = document.getElementById('script-text').textContent;
   const text = `📅 ${String(day).padStart(2,'0')} July 2026 — GrowTogether Solutions\n\n📝 CAPTION:\n${caption}\n\n#️⃣ HASHTAGS:\n${hashtags}\n\n🎬 VIDEO SCRIPT:\n${script}`;
-  navigator.clipboard.writeText(text).then(() => alert('Sab kuch copy ho gaya! ✅'));
+  navigator.clipboard.writeText(text).then(() => alert('Everything copied! ✅'));
 }
 
 function downloadContent(){
@@ -553,7 +550,7 @@ function downloadContent(){
   const caption = document.getElementById('caption-text').textContent;
   const hashtags = document.getElementById('hashtag-text').textContent;
   const script = document.getElementById('script-text').textContent;
-  const text = `GROWTOGETHER SOLUTIONS — CONTENT CALENDAR\n${String(day).padStart(2,'0')} July 2026\n${'='.repeat(40)}\n\nSERVICE: ${data.service}\n\nCAPTION (Instagram / LinkedIn):\n${caption}\n\nHASHTAGS:\n${hashtags}\n\nVIDEO SCRIPT / REEL IDEA:\n${script}\n\nIMAGE PROMPT (for Kling AI / Pika):\n${data.imagePrompt}\n\n${'='.repeat(40)}\nGrowtogether Solutions · Rajkot, Gujarat\nPhone: +91 99797 01232\nWebsite: growtogethersolution.co.in`;
+  const text = `GROWTOGETHER SOLUTIONS — CONTENT CALENDAR\n${String(day).padStart(2,'0')} July 2026\n${'='.repeat(40)}\n\nSERVICE: ${data.service}\n\nCAPTION (Instagram / LinkedIn):\n${caption}\n\nHASHTAGS:\n${hashtags}\n\nVIDEO SCRIPT / REEL IDEA:\n${script}\n\nIMAGE PROMPT:\n${data.imagePrompt}\n\n${'='.repeat(40)}\nGrowtogether Solutions · Rajkot, Gujarat\nPhone: +91 99797 01232\nWebsite: growtogethersolution.co.in`;
   const blob = new Blob([text], { type: 'text/plain' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
