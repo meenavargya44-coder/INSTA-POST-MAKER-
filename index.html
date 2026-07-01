@@ -244,9 +244,14 @@ h1,h2,.logo,.result-date,.block-header span{font-family:'Plus Jakarta Sans',syst
   </div>
 
   <div class="download-bar">
+    <button class="dl-btn primary" onclick="downloadImage()">🖼️ Download Image</button>
     <button class="dl-btn primary" onclick="downloadContent()">⬇️ Download Text</button>
     <button class="dl-btn secondary" onclick="copyAll()">📋 Copy All</button>
+  </div>
+  <div class="download-bar">
     <button class="dl-btn secondary" onclick="shareWhatsApp()">💬 WhatsApp</button>
+    <button class="dl-btn secondary" onclick="openInstagram()">📷 Open Instagram</button>
+    <button class="dl-btn secondary" onclick="openLinkedIn()">💼 Open LinkedIn</button>
   </div>
 </div>
 
@@ -566,6 +571,55 @@ function shareWhatsApp(){
   const caption = document.getElementById('caption-text').textContent.substring(0,200);
   const text = `GrowTogether Solutions — ${String(day).padStart(2,'0')} July 2026 Content:\n\n${caption}...\n\nSee full content at our calendar!`;
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+async function downloadImage(){
+  const day = parseInt(document.getElementById('date-select').value);
+  if(!day) return;
+  const img = document.getElementById('post-image');
+  if(!img.src){ alert('No image loaded yet — search a date first!'); return; }
+  try{
+    const response = await fetch(img.src, { mode: 'cors' });
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `GrowTogether-July2026-Day${String(day).padStart(2,'0')}-Image.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }catch(err){
+    // Fallback: open the image in a new tab so the user can save it manually
+    window.open(img.src, '_blank');
+    alert('Direct download blocked by the browser — the image opened in a new tab. Long-press / right-click it to save.');
+  }
+}
+
+function openInstagram(){
+  const day = parseInt(document.getElementById('date-select').value);
+  if(!day) return;
+  const caption = document.getElementById('caption-text').textContent;
+  const hashtags = document.getElementById('hashtag-text').textContent;
+  navigator.clipboard.writeText(`${caption}\n\n${hashtags}`).then(() => {
+    alert('Caption + hashtags copied! Instagram is opening — create your post and paste the caption in.');
+    window.open('https://www.instagram.com/', '_blank');
+  }).catch(() => {
+    window.open('https://www.instagram.com/', '_blank');
+  });
+}
+
+function openLinkedIn(){
+  const day = parseInt(document.getElementById('date-select').value);
+  if(!day) return;
+  const caption = document.getElementById('caption-text').textContent;
+  const hashtags = document.getElementById('hashtag-text').textContent;
+  navigator.clipboard.writeText(`${caption}\n\n${hashtags}`).then(() => {
+    alert('Caption + hashtags copied! LinkedIn is opening — start a new post and paste the caption in.');
+    window.open('https://www.linkedin.com/feed/', '_blank');
+  }).catch(() => {
+    window.open('https://www.linkedin.com/feed/', '_blank');
+  });
 }
 </script>
 </body>
