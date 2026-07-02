@@ -63,7 +63,7 @@ h1,h2,.logo,.result-date,.block-header span{font-family:'Plus Jakarta Sans',syst
 
 /* Image */
 .img-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:16px}
-.scene-img{width:100%;border-radius:var(--radius-sm);object-fit:cover;min-height:200px;background:var(--card);display:block;border:1px solid var(--border)}
+.scene-img{width:100%;border-radius:var(--radius-sm);object-fit:cover;aspect-ratio:4/5;background:var(--card);display:block;border:1px solid var(--border)}
 
 /* Download */
 .download-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;box-shadow:var(--shadow)}
@@ -546,14 +546,14 @@ function buildPosterSVG(day, data){
   const icon = parts[0];
   const serviceName = parts.slice(1).join(' ');
   const lines = wrapText(data.headline, 17).slice(0, 3);
-  const lineHeight = 44;
+  const lineHeight = 46;
   const blockHeight = (lines.length - 1) * lineHeight;
-  const startY = 336 - blockHeight / 2;
+  const startY = 400 - blockHeight / 2;
   const textLines = lines.map((l, i) =>
     `<tspan x="300" y="${startY + i * lineHeight}">${escapeXML(l)}</tspan>`
   ).join('');
 
-  return `<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  return `<svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="bg-${day}" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#0ea5e9"/>
@@ -566,61 +566,109 @@ function buildPosterSVG(day, data){
       </linearGradient>
       <linearGradient id="card-${day}" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="100%" stop-color="#f0f9ff"/>
+        <stop offset="100%" stop-color="#eaf6fe"/>
       </linearGradient>
+      <radialGradient id="sphere-${day}" cx="35%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="55%" stop-color="#e0f2fe"/>
+        <stop offset="100%" stop-color="#bae6fd"/>
+      </radialGradient>
+      <radialGradient id="iconBall-${day}" cx="32%" cy="28%" r="80%">
+        <stop offset="0%" stop-color="#f0f9ff"/>
+        <stop offset="60%" stop-color="#cdeeff"/>
+        <stop offset="100%" stop-color="#7dd3fc"/>
+      </radialGradient>
+      <linearGradient id="chip1-${day}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#7dd3fc"/>
+        <stop offset="100%" stop-color="#0ea5e9"/>
+      </linearGradient>
+      <linearGradient id="chip2-${day}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#e0f2fe"/>
+        <stop offset="100%" stop-color="#7dd3fc"/>
+      </linearGradient>
+      <linearGradient id="sheen-${day}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+      <clipPath id="cardClip-${day}">
+        <rect x="48" y="185" width="504" height="410" rx="30"/>
+      </clipPath>
       <filter id="soft-${day}" x="-60%" y="-60%" width="220%" height="220%">
         <feGaussianBlur stdDeviation="26"/>
       </filter>
-      <filter id="cardShadow-${day}" x="-30%" y="-30%" width="160%" height="160%">
-        <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0c4a6e" flood-opacity="0.30"/>
+      <filter id="cardShadowFar-${day}" x="-40%" y="-40%" width="180%" height="180%">
+        <feDropShadow dx="0" dy="30" stdDeviation="26" flood-color="#062a41" flood-opacity="0.28"/>
       </filter>
-      <filter id="badgeShadow-${day}" x="-80%" y="-80%" width="260%" height="260%">
-        <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0c4a6e" flood-opacity="0.30"/>
+      <filter id="cardShadowNear-${day}" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0c4a6e" flood-opacity="0.22"/>
       </filter>
-      <filter id="iconGlow-${day}" x="-60%" y="-60%" width="220%" height="220%">
-        <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#0284c7" flood-opacity="0.25"/>
+      <filter id="badgeShadow-${day}" x="-100%" y="-100%" width="300%" height="300%">
+        <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#062a41" flood-opacity="0.35"/>
+      </filter>
+      <filter id="iconGlow-${day}" x="-100%" y="-100%" width="300%" height="300%">
+        <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0369a1" flood-opacity="0.35"/>
+      </filter>
+      <filter id="chipShadow-${day}" x="-80%" y="-80%" width="260%" height="260%">
+        <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#062a41" flood-opacity="0.25"/>
       </filter>
     </defs>
 
-    <rect width="600" height="600" fill="url(#bg-${day})"/>
+    <rect width="600" height="750" fill="url(#bg-${day})"/>
     <circle cx="40" cy="70" r="130" fill="#ffffff" opacity="0.10" filter="url(#soft-${day})"/>
-    <circle cx="580" cy="470" r="170" fill="#ffffff" opacity="0.10" filter="url(#soft-${day})"/>
+    <circle cx="580" cy="640" r="180" fill="#ffffff" opacity="0.10" filter="url(#soft-${day})"/>
     <circle cx="540" cy="60" r="80" fill="#7dd3fc" opacity="0.35" filter="url(#soft-${day})"/>
-    <circle cx="30" cy="500" r="70" fill="#38bdf8" opacity="0.30" filter="url(#soft-${day})"/>
+    <circle cx="30" cy="700" r="80" fill="#38bdf8" opacity="0.30" filter="url(#soft-${day})"/>
 
-    <!-- Day badge -->
-    <g filter="url(#badgeShadow-${day})">
-      <circle cx="62" cy="62" r="34" fill="#ffffff"/>
+    <!-- Floating 3D UI chips for depth / parallax -->
+    <g filter="url(#chipShadow-${day})" transform="rotate(-10 110 120)" opacity="0.9">
+      <rect x="80" y="98" width="60" height="44" rx="12" fill="url(#chip1-${day})"/>
     </g>
+    <g filter="url(#chipShadow-${day})" transform="rotate(12 505 630)" opacity="0.85">
+      <rect x="478" y="612" width="54" height="40" rx="11" fill="url(#chip2-${day})"/>
+    </g>
+
+    <!-- Day badge (glossy sphere) -->
+    <g filter="url(#badgeShadow-${day})">
+      <circle cx="62" cy="62" r="34" fill="url(#sphere-${day})"/>
+    </g>
+    <ellipse cx="52" cy="50" rx="14" ry="9" fill="#ffffff" opacity="0.6"/>
     <text x="62" y="69" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="19" fill="#0369a1">D${String(day).padStart(2,'0')}</text>
 
     <!-- Brand tag top-right -->
     <text x="538" y="45" text-anchor="end" font-family="Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#e0f2fe">GROWTOGETHER</text>
     <text x="538" y="65" text-anchor="end" font-family="Arial, sans-serif" font-weight="500" font-size="11" letter-spacing="1" fill="#e0f2fe" opacity="0.9">SOLUTIONS</text>
 
-    <!-- Main card -->
-    <g filter="url(#cardShadow-${day})">
-      <rect x="48" y="148" width="504" height="326" rx="30" fill="url(#card-${day})"/>
+    <!-- Main card — layered shadows for a floating, raised look -->
+    <g filter="url(#cardShadowFar-${day})">
+      <rect x="48" y="185" width="504" height="410" rx="30" fill="url(#card-${day})"/>
     </g>
-    <rect x="48" y="148" width="504" height="326" rx="30" fill="none" stroke="#bae6fd" stroke-width="1.5"/>
+    <g filter="url(#cardShadowNear-${day})">
+      <rect x="48" y="185" width="504" height="410" rx="30" fill="url(#card-${day})"/>
+    </g>
+    <rect x="48" y="185" width="504" height="410" rx="30" fill="none" stroke="#bae6fd" stroke-width="1.5"/>
+    <!-- glossy sheen across the top of the card -->
+    <rect x="48" y="185" width="504" height="150" rx="30" fill="url(#sheen-${day})" clip-path="url(#cardClip-${day})"/>
 
+    <!-- Icon badge (glossy raised sphere, floating above the card) -->
     <g filter="url(#iconGlow-${day})">
-      <circle cx="300" cy="216" r="46" fill="#e0f2fe"/>
+      <circle cx="300" cy="260" r="50" fill="url(#iconBall-${day})"/>
     </g>
-    <text x="300" y="232" text-anchor="middle" font-size="46">${icon}</text>
+    <ellipse cx="283" cy="243" rx="17" ry="10" fill="#ffffff" opacity="0.65"/>
+    <text x="300" y="278" text-anchor="middle" font-size="48">${icon}</text>
 
-    <text x="300" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="2.5" fill="#0284c7">${escapeXML(serviceName.toUpperCase())}</text>
+    <text x="300" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="2.5" fill="#0284c7">${escapeXML(serviceName.toUpperCase())}</text>
 
-    <text text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#0c2f47">
+    <text text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="34" fill="#0c2f47">
       ${textLines}
     </text>
 
-    <line x1="250" y1="452" x2="350" y2="452" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+    <line x1="250" y1="555" x2="350" y2="555" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
 
     <!-- Footer with website + phone baked in -->
-    <rect x="0" y="520" width="600" height="80" fill="url(#footer-${day})"/>
-    <text x="300" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="17" fill="#ffffff">🌐 growtogethersolution.co.in</text>
-    <text x="300" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="14" fill="#e0f2fe">📞 +91 99797 01232 &#160;&#183;&#160; Rajkot, Gujarat</text>
+    <rect x="0" y="670" width="600" height="80" fill="url(#footer-${day})"/>
+    <rect x="0" y="670" width="600" height="6" fill="#062a41" opacity="0.15"/>
+    <text x="300" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="17" fill="#ffffff">🌐 growtogethersolution.co.in</text>
+    <text x="300" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="14" fill="#e0f2fe">📞 +91 99797 01232 &#160;&#183;&#160; Rajkot, Gujarat</text>
   </svg>`;
 }
 
@@ -727,14 +775,14 @@ function downloadImage(){
 
   const tempImg = new Image();
   tempImg.onload = function(){
-    const size = 1080; // high-resolution, Instagram-ready square
+    const width = 1080, height = 1350; // Instagram-optimized 4:5 portrait, high-resolution
     const canvas = document.createElement('canvas');
-    canvas.width = size;
-    canvas.height = size;
+    canvas.width = width;
+    canvas.height = height;
     const ctx = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(tempImg, 0, 0, size, size);
+    ctx.drawImage(tempImg, 0, 0, width, height);
     URL.revokeObjectURL(url);
 
     canvas.toBlob(function(blob){
