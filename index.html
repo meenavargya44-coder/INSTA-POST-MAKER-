@@ -500,18 +500,18 @@ const content = {
   30: {
     service: "✍️ Content Writing",
     headline: "Plan Ahead. Post With Confidence.",
-    caption: `Second-to-last post of July — and one simple truth: consistency beats perfection in content marketing. 🏆\n\nThat's why we plan content in advance, for the entire month.\n\nGrowTogether Content Planning Service:\n📅 A 30-day content calendar\n✍️ Captions written ahead of time\n🎨 Image briefs ready to go\n#️⃣ Hashtag sets prepared\n📊 Performance tracking set up\n\nNow's the right time to start planning August — not scrambling last minute.\n\nGet next month's content built now. DM us. 🚀`,
+    caption: `One simple truth in content marketing: consistency beats perfection. 🏆\n\nThat's why we plan content in advance, month by month, instead of scrambling for ideas the night before.\n\nGrowTogether Content Planning Service:\n📅 A full content calendar, weeks ahead\n✍️ Captions written ahead of time\n🎨 Image briefs ready to go\n#️⃣ Hashtag sets prepared\n📊 Performance tracking set up\n\nThe businesses that grow steadily aren't the ones scrambling for a post idea every morning — they're the ones with a plan already in place.\n\nLet's get your next month of content built now. DM us. 🚀`,
     hashtags: `#ContentPlanning #ContentCalendar #GrowTogetherSolutions #ConsistencyOverPerfection #MarketingCalendar #StrategicContentPlanning`,
     imagePrompt: `A content planning desk scene with a monthly calendar covered in color-coded sticky notes, a laptop open to a planning spreadsheet, minimal bright workspace with natural light. ${THEME_STYLE}`,
-    script: `🎬 REEL — "How We Plan an Entire Month"\n\nHook: "The secret to content consistency? Plan ahead."\n\nBody:\n- Calendar creation process\n- Batch content prep\n- Scheduling walkthrough\n- Result: consistent posting, steady growth\n\nCTA: "Get your August content plan built — DM us today!"`
+    script: `🎬 REEL — "How We Plan An Entire Month"\n\nHook: "The secret to content consistency? Plan ahead."\n\nBody:\n- Calendar creation process\n- Batch content prep\n- Scheduling walkthrough\n- Result: consistent posting, steady growth\n\nCTA: "Get your next month's content plan built — DM us today!"`
   },
   31: {
     service: "📱 Social Media Marketing",
-    headline: "July Done. August Begins.",
-    caption: `July's done — ready for August? 🎉\n\nIf growth felt a little slow this month, August is your fresh start.\n\nThe monthly package includes:\n✅ 10 professional images\n✅ 2 engaging videos\n✅ Captions + hashtags, unique for every post\n✅ A full content calendar\n✅ A monthly performance report\n✅ Strategy consultation included\n\nWe handle your social media — you focus on growing the core business.\n\nAugust slots are limited. "Growing Together, Winning Together" — let's get started.\n\n📞 +91 99797 01232\n💬 wa.me/919979701232`,
-    hashtags: `#AugustPlanning #GrowTogetherSolutions #SocialMediaManagement #MonthlyMarketingPackage #BusinessGrowth #YourGrowthOurMission`,
-    imagePrompt: `A month-end to new-month transition concept with a calendar page turning from July to August, subtle celebratory graphic elements, minimal bright background. ${THEME_STYLE}`,
-    script: `🎬 REEL — "July Recap, August Plan"\n\nHook: "July's over. August is here. Is your plan ready?"\n\nBody:\n- Quick July recap: what worked\n- Key lesson learned\n- August strategy preview\n- Early booking offer mention\n\nCTA: "Book your August package — limited slots! DM us!"`
+    headline: "Consistency Is The Real Growth Hack",
+    caption: `Here's what nobody tells you about social media growth — it's rarely one viral post. 📈\n\nIt's the 30th post that finally lands, because the previous 29 built the trust, the visual identity, and the audience that made it possible.\n\nWith GrowTogether, that consistency is built in:\n✅ 10 professional images every month\n✅ 2 engaging videos\n✅ A unique caption + hashtag set for every post\n✅ A full content calendar, planned in advance\n✅ A monthly performance report with real numbers\n✅ Strategy consultation included\n\nWe handle the posting — you focus on running the business.\n\n"Growing Together, Winning Together." Let's build your next 30 posts. 🚀\n\n📞 +91 99797 01232\n💬 wa.me/919979701232`,
+    hashtags: `#SocialMediaMarketing #GrowTogetherSolutions #ContentConsistency #SocialMediaManagement #DigitalMarketing #BrandBuilding #YourGrowthOurMission`,
+    imagePrompt: `A steady, consistent content calendar with posts scheduled in a clean grid, an upward engagement graph beside it, minimal bright background. ${THEME_STYLE}`,
+    script: `🎬 REEL — "The 30th Post"\n\nHook: "The viral post wasn't post #1. It was post #30."\n\nBody:\n- Quick montage: consistent posting over weeks\n- Engagement graph slowly climbing\n- The "breakout" post moment, with context on what built up to it\n\nCTA: "Start building your 30 posts — DM us!"`
   }
 };
 
@@ -569,23 +569,32 @@ function sceneSocial(){
     ${grid}
     <rect x="-40" y="34" width="80" height="9" rx="4" fill="#e0f2fe"/>
     <rect x="-40" y="50" width="52" height="7" rx="3" fill="#e0f2fe"/>
-    <rect x="24" y="66" width="30" height="20" rx="7" fill="#0ea5e9"/>
-    <polygon points="30,86 40,96 46,86" fill="#0ea5e9"/>
+    <path d="M32 70 C28 64 18 66 18 74 C18 82 32 92 32 92 C32 92 46 82 46 74 C46 66 36 64 32 70 Z" fill="#f97316"/>
+    <circle cx="-30" cy="80" r="10" fill="#14b8a6"/>
+    <text x="-30" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff">99+</text>
   `;
 }
 
 function sceneTraining(){
   const person = (x, headR, bodyW, color) => `
-    <circle cx="${x}" cy="${40-headR*3}" r="${headR}" fill="${color}"/>
-    <path d="M${x-bodyW} 60 Q${x} ${40-headR*3+headR+10} ${x+bodyW} 60 Z" fill="${color}"/>
+    <circle cx="${x}" cy="${44-headR*3}" r="${headR}" fill="${color}"/>
+    <path d="M${x-bodyW} 62 Q${x} ${44-headR*3+headR+10} ${x+bodyW} 62 Z" fill="${color}"/>
   `;
   return `
-    <line x1="-95" y1="62" x2="95" y2="62" stroke="#bae6fd" stroke-width="3" stroke-linecap="round"/>
-    ${person(-55, 13, 22, '#7dd3fc')}
-    ${person(0, 16, 26, '#0ea5e9')}
-    ${person(55, 13, 22, '#38bdf8')}
-    <path d="M-70 -25 L-30 -55 L8 -35 L58 -78" stroke="#0284c7" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <polygon points="58,-78 46,-74 54,-64" fill="#0284c7"/>
+    <rect x="-60" y="-96" width="120" height="70" rx="10" fill="#062a41" opacity="0.13" transform="translate(4,6)"/>
+    <rect x="-60" y="-96" width="120" height="70" rx="10" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+    <rect x="-46" y="-84" width="14" height="42" rx="3" fill="#7dd3fc"/>
+    <rect x="-26" y="-92" width="14" height="50" rx="3" fill="#14b8a6"/>
+    <rect x="-6" y="-76" width="14" height="34" rx="3" fill="#0ea5e9"/>
+    <rect x="14" y="-88" width="14" height="46" rx="3" fill="#f59e0b"/>
+    <path d="M-46 -46 L28 -46" stroke="#bae6fd" stroke-width="2"/>
+    <line x1="-95" y1="64" x2="95" y2="64" stroke="#bae6fd" stroke-width="3" stroke-linecap="round"/>
+    ${person(-58, 12, 20, '#7dd3fc')}
+    ${person(-2, 15, 24, '#0ea5e9')}
+    ${person(56, 12, 20, '#38bdf8')}
+    <path d="M74 6 L74 -14" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="74" cy="-20" r="7" fill="#f59e0b"/>
+    <path d="M60 -30 L64 -38 M74 -34 L74 -42 M88 -30 L84 -38" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
   `;
 }
 
@@ -598,10 +607,11 @@ function sceneCRM(){
     <circle cx="-68" cy="-62" r="4" fill="#ffffff"/>
     <circle cx="-56" cy="-62" r="4" fill="#ffffff"/>
     <rect x="-80" y="-8" width="20" height="35" rx="3" fill="#7dd3fc"/>
-    <rect x="-54" y="-20" width="20" height="47" rx="3" fill="#38bdf8"/>
+    <rect x="-54" y="-20" width="20" height="47" rx="3" fill="#14b8a6"/>
     <rect x="-28" y="2" width="20" height="25" rx="3" fill="#0ea5e9"/>
-    <rect x="-2" y="-14" width="20" height="41" rx="3" fill="#0284c7"/>
+    <rect x="-2" y="-14" width="20" height="41" rx="3" fill="#f59e0b"/>
     <path d="M28 -12 L46 12 L64 -6 L82 22" stroke="#0369a1" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="82" cy="22" r="4" fill="#0369a1"/>
   `;
 }
 
@@ -610,12 +620,17 @@ function scenePPT(){
     <rect x="-72" y="-52" width="150" height="104" rx="10" fill="#bae6fd" transform="rotate(-6 3 0) translate(16,-4)"/>
     <rect x="-82" y="-58" width="150" height="104" rx="10" fill="#7dd3fc" transform="rotate(4 -7 0) translate(6,6)"/>
     <rect x="-80" y="-64" width="160" height="112" rx="12" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
-    <rect x="-80" y="-64" width="160" height="26" rx="12" fill="#0ea5e9"/>
-    <rect x="-64" y="-22" width="90" height="8" rx="4" fill="#e0f2fe"/>
-    <rect x="-64" y="-6" width="70" height="8" rx="4" fill="#e0f2fe"/>
-    <rect x="-64" y="10" width="80" height="8" rx="4" fill="#e0f2fe"/>
-    <circle cx="52" cy="2" r="20" fill="none" stroke="#0284c7" stroke-width="6"/>
-    <path d="M52 -18 A20 20 0 0 1 70 10 L52 2 Z" fill="#0284c7"/>
+    <rect x="-80" y="-64" width="160" height="24" rx="12" fill="#0369a1"/>
+    <rect x="-68" y="-56" width="60" height="7" rx="3" fill="#e0f2fe"/>
+    <rect x="-68" y="-22" width="16" height="34" rx="2" fill="#7dd3fc"/>
+    <rect x="-46" y="-32" width="16" height="44" rx="2" fill="#14b8a6"/>
+    <rect x="-24" y="-14" width="16" height="26" rx="2" fill="#0ea5e9"/>
+    <rect x="-2" y="-40" width="16" height="52" rx="2" fill="#f59e0b"/>
+    <path d="M-70 -30 L-54 -8 L-38 -20 L-22 4 L-2 -22" stroke="#0369a1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="46" cy="-14" r="18" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+    <path d="M46 -14 L46 -32 A18 18 0 0 1 62 -8 Z" fill="#f59e0b"/>
+    <path d="M46 -14 L62 -8 A18 18 0 0 1 46 4 Z" fill="#14b8a6"/>
+    <path d="M46 -14 L46 4 A18 18 0 0 1 30 -18 Z" fill="#0ea5e9"/>
   `;
 }
 
@@ -623,10 +638,11 @@ function sceneStrategy(){
   return `
     <line x1="-90" y1="60" x2="90" y2="60" stroke="#bae6fd" stroke-width="3" stroke-linecap="round"/>
     <rect x="-80" y="20" width="24" height="40" rx="4" fill="#7dd3fc"/>
-    <rect x="-44" y="0" width="24" height="60" rx="4" fill="#38bdf8"/>
+    <rect x="-44" y="0" width="24" height="60" rx="4" fill="#14b8a6"/>
     <rect x="-8" y="-30" width="24" height="90" rx="4" fill="#0ea5e9"/>
-    <rect x="28" y="-60" width="24" height="120" rx="4" fill="#0284c7"/>
+    <rect x="28" y="-60" width="24" height="120" rx="4" fill="#f59e0b"/>
     <path d="M-80 30 L-32 -5 L10 -35 L52 -70" stroke="#0369a1" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 9"/>
+    <path d="M56 -92 L64 -68 L88 -68 L68 -54 L76 -30 L56 -44 L36 -30 L44 -54 L24 -68 L48 -68 Z" fill="#fbbf24" transform="translate(0,4) scale(0.55)" />
     <polygon points="52,-70 38,-66 46,-56" fill="#0369a1"/>
   `;
 }
@@ -635,14 +651,15 @@ function sceneContent(){
   return `
     <rect x="-58" y="-82" width="116" height="152" rx="10" fill="#062a41" opacity="0.13" transform="translate(6,8)"/>
     <rect x="-58" y="-82" width="116" height="152" rx="10" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+    <rect x="-46" y="-64" width="92" height="16" rx="4" fill="#fde68a" opacity="0.7"/>
     <rect x="-42" y="-60" width="84" height="8" rx="4" fill="#0284c7"/>
     <rect x="-42" y="-42" width="70" height="6" rx="3" fill="#bae6fd"/>
     <rect x="-42" y="-28" width="76" height="6" rx="3" fill="#bae6fd"/>
-    <rect x="-42" y="-14" width="60" height="6" rx="3" fill="#bae6fd"/>
+    <rect x="-42" y="-14" width="60" height="6" rx="3" fill="#14b8a6" opacity="0.6"/>
     <rect x="-42" y="0" width="72" height="6" rx="3" fill="#bae6fd"/>
     <rect x="-42" y="14" width="50" height="6" rx="3" fill="#bae6fd"/>
     <g transform="translate(46,48) rotate(45)">
-      <rect x="-6" y="-38" width="12" height="58" rx="4" fill="#0ea5e9"/>
+      <rect x="-6" y="-38" width="12" height="58" rx="4" fill="#f59e0b"/>
       <polygon points="-6,20 6,20 0,33" fill="#0369a1"/>
     </g>
   `;
@@ -657,9 +674,27 @@ function sceneWebsite(){
     <circle cx="-68" cy="-58" r="4" fill="#7dd3fc"/>
     <circle cx="-56" cy="-58" r="4" fill="#7dd3fc"/>
     <rect x="-30" y="-64" width="90" height="12" rx="6" fill="#e0f2fe"/>
-    <rect x="-80" y="-36" width="160" height="30" rx="6" fill="#e0f2fe"/>
+    <defs>
+      <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#38bdf8"/>
+        <stop offset="100%" stop-color="#14b8a6"/>
+      </linearGradient>
+    </defs>
+    <rect x="-80" y="-36" width="160" height="30" rx="6" fill="url(#heroGrad)"/>
     <rect x="-80" y="4" width="72" height="30" rx="6" fill="#7dd3fc"/>
-    <rect x="8" y="4" width="72" height="30" rx="6" fill="#38bdf8"/>
+    <rect x="8" y="4" width="72" height="30" rx="6" fill="#f59e0b"/>
+    <g transform="translate(44,19)">
+      <circle r="16" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.5">
+        <animate attributeName="r" values="14;22;14" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.55;0.05;0.55" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="22" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.25">
+        <animate attributeName="r" values="20;30;20" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.02;0.3" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="16" fill="#ffffff"/>
+      <path d="M-4 -6 L8 0 L-4 6 Z" fill="#0369a1"/>
+    </g>
   `;
 }
 
@@ -670,8 +705,10 @@ function sceneEmail(){
     <path d="M-95 -58 L0 12 L95 -58" fill="none" stroke="#0284c7" stroke-width="4" stroke-linejoin="round"/>
     <line x1="-95" y1="60" x2="-10" y2="0" stroke="#bae6fd" stroke-width="3"/>
     <line x1="95" y1="60" x2="10" y2="0" stroke="#bae6fd" stroke-width="3"/>
-    <circle cx="68" cy="-50" r="18" fill="#0ea5e9"/>
+    <circle cx="68" cy="-50" r="18" fill="#f59e0b"/>
     <text x="68" y="-44" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="18" fill="#ffffff">!</text>
+    <circle cx="-68" cy="46" r="14" fill="#14b8a6"/>
+    <path d="M-74 46 L-70 51 L-62 41" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   `;
 }
 
